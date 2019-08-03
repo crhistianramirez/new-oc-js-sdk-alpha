@@ -1,0 +1,38 @@
+{{#resource.fileImports}}
+import { {{this}} } from '../models/{{this}}';
+{{/resource.fileImports}}
+import httpClient from '../utils/httpClient';
+
+class {{resource.id}} {
+    private impersonating:boolean = false;
+
+    {{#resource.operations}}
+   /**{{#allParams}}
+    * @param {{#if isQueryParam}}options.{{name}} {{description}}{{else}}{{name}} {{description}}{{/if}}{{/allParams}}
+    * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
+    */
+    public async {{name}} ({{#allParams}}{{#unless isQueryParam}}{{name}}: {{getType this}}, {{/unless}}{{/allParams}} {{#if hasQueryParams}}options: { {{#queryParams}}{{name}}?: {{getType this}}{{#unless @last}}, {{/unless}}{{/queryParams}} } {{#if hasFilters}}= { filters: {}}{{/if}}, {{/if}}accessToken?: string ): Promise<{{#if hasReturnType}}{{returnType}}{{else}}void{{/if}}> {
+        const impersonating = this.impersonating;
+        this.impersonating = false;
+        {{#if hasFilters}}
+        const filters = options.filters;
+        delete options.filters;
+        {{/if}}
+        return await httpClient.{{verb}}(`{{parameterizePath path}}`{{#if hasQueryParams}}, { params: { ...options, {{#if hasFilters}}...filters, {{/if}}accessToken, impersonating } }{{/if}}{{#if hasBodyParam}}, { data: {{bodyParam.name}}, params: { accessToken, impersonating } } {{/if}}{{#unless hasQueryParams}}{{#unless hasBodyParam}}, { params: { accessToken, impersonating } }{{/unless}}{{/unless}} );
+    }
+
+    {{/resource.operations}}
+    /**
+     * @description 
+     * enables impersonation by calling the following method with the stores impersonation token
+     * 
+     * @example
+     * {{resource.id}}.As().List() // lists {{resource.id}} using the impersonated users' token
+     */
+    public As(): this {
+        this.impersonating = true;
+        return this;
+    }
+}
+
+export default new {{resource.id}}();

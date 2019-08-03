@@ -1,0 +1,8 @@
+{
+    "beautify.ignore": "**/*",
+    "editor.formatOnSave": true,
+    "eslint.autoFixOnSave": true,
+    "[handlebars]": {
+        "editor.formatOnSave": false
+    }
+}

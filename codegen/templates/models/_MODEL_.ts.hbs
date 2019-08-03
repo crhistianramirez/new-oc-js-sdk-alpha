@@ -1,0 +1,9 @@
+{{#model.fileImports}}
+import { {{this}} } from './{{this}}';
+{{/model.fileImports}}
+
+export interface {{model.name }} {
+    {{#model.properties}}
+    {{ name }}: {{getType this}};
+    {{/model.properties}}
+}

@@ -1,0 +1,59 @@
+{
+  "name": "@ordercloud/javascript-sdk",
+  "description": "the offical javascript sdk for the ordercloud b2b ecommerce api",
+  "author": "Four51 OrderCloud",
+  "version": "0.0.1-1",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "homepage": "https://public.four51.com",
+  "bugs": {
+    "url": "https://github.com/ordercloud-api/js-sdk/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ordercloud-api/js-sdk"
+  },
+  "keywords": [
+    "ordercloud",
+    "four51",
+    "b2b",
+    "javascript",
+    "typescript",
+    "ecommerce",
+    "api",
+    "headless",
+    "sdk"
+  ],
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "engines": {
+    "node": ">=0.10"
+  },
+  "scripts": {
+    "generate": "run-s prettify generate-sdk generate-docs build",
+    "prepublishOnly": "npm run generate",
+    "prettify": "prettier --write codegen/**/*.ts --loglevel silent",
+    "generate-sdk": "oc-codegen -i ./openapi.json -t ./codegen/templates -o ./src -b codegen/handlebars-extensions",
+    "build": "rollup --config",
+    "generate-docs": "typedoc src/"
+  },
+  "devDependencies": {
+    "@ordercloud/oc-codegen": "^0.0.1-0",
+    "axios": "^0.19.0",
+    "lodash": "^4.17.15",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "rollup": "^1.17.0",
+    "rollup-plugin-terser": "^5.1.1",
+    "rollup-plugin-typescript2": "^0.22.1",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "axios": ">=0.5.0"
+  }
+}
