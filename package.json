@@ -38,7 +38,7 @@
     "prettify": "prettier --write codegen/**/*.ts --loglevel silent",
     "generate-sdk": "oc-codegen -i ./openapi.json -t ./codegen/templates -o ./src -b codegen/handlebars-extensions",
     "build": "rollup --config",
-    "generate-docs": "typedoc src/"
+    "generate-docs": "typedoc src/ && shx rm docs/index.html && shx mv docs/globals.html docs/index.html"
   },
   "devDependencies": {
     "@ordercloud/oc-codegen": "^0.0.1-0",
@@ -49,6 +49,7 @@
     "rollup": "^1.17.0",
     "rollup-plugin-terser": "^5.1.1",
     "rollup-plugin-typescript2": "^0.22.1",
+    "shx": "^0.3.2",
     "typedoc": "^0.15.0",
     "typescript": "^3.5.3"
   },

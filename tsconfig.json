@@ -13,11 +13,11 @@
   ],
   "typedocOptions": {
     "mode": "file",
-    "out": "docs/api-reference",
+    "out": "docs",
     "name": "ordercloud-javascript-sdk",
     "excludeExternals": true,
     "excludePrivate": true,
     "excludeProtected": true,
-    "theme": "docs/api-reference-templates"
+    "theme": "docs-templates"
   }
 }

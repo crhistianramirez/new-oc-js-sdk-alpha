@@ -25,7 +25,7 @@ The OrderCloud SDK for Javascript is a modern client library for building soluti
 - Full feature parity with API
 - Auto-generated [API reference](TODO:link-to-api-referencething)
 
-> Coming from an older version? Check out the [migration guide](./docs/MIGRATION_GUIDE.md) so you can upgrade to the latest and greatest.
+> Coming from an older version? Check out the [migration guide](./readmes/MIGRATION_GUIDE.md) so you can upgrade to the latest and greatest.
 
 ## ⚙️ Installation
 
@@ -187,11 +187,11 @@ While typescript is not required to use this project (we compile it down to java
 
 ## 📄 License
 
-OrderCloud's Javascript SDK is an open-sourced software licensed under the [MIT license](./LICENSE).
+OrderCloud's Javascript SDK is an open-sourced software licensed under the [MIT license](./readmes/LICENSE).
 
 ## 🤝 Contributing
 
-Check out our [Contributing](./docs/CONTRIBUTING.md) guide.
+Check out our [Contributing](./readmes/CONTRIBUTING.md) guide.
 
 ## 🆘 Getting Help
 
