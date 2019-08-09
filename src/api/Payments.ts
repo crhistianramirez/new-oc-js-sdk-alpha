@@ -17,7 +17,7 @@ class Payments {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List (direction: 'Incoming' | 'Outgoing', orderID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListPayment> {
+    public async List (direction: 'Incoming' | 'Outgoing', orderID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListPayment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -31,7 +31,7 @@ class Payments {
     * @param payment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (direction: 'Incoming' | 'Outgoing', orderID: string, payment: Payment,  accessToken?: string ): Promise<Payment> {
+    public async Create (direction: 'Incoming' | 'Outgoing', orderID: string, payment: Partial<Payment>,  accessToken?: string ): Promise<Required<Payment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orders/${direction}/${orderID}/payments`, { data: payment, params: { accessToken, impersonating } }  );
@@ -43,7 +43,7 @@ class Payments {
     * @param paymentID ID of the payment.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (direction: 'Incoming' | 'Outgoing', orderID: string, paymentID: string,  accessToken?: string ): Promise<Payment> {
+    public async Get (direction: 'Incoming' | 'Outgoing', orderID: string, paymentID: string,  accessToken?: string ): Promise<Required<Payment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/orders/${direction}/${orderID}/payments/${paymentID}`, { params: { accessToken, impersonating } } );
@@ -68,7 +68,7 @@ class Payments {
     * @param payment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (direction: 'Incoming' | 'Outgoing', orderID: string, paymentID: string, payment: Payment,  accessToken?: string ): Promise<Payment> {
+    public async Patch (direction: 'Incoming' | 'Outgoing', orderID: string, paymentID: string, payment: Partial<Payment>,  accessToken?: string ): Promise<Required<Payment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/orders/${direction}/${orderID}/payments/${paymentID}`, { data: payment, params: { accessToken, impersonating } }  );
@@ -78,10 +78,10 @@ class Payments {
     * @param direction Direction of the order, from the current user's perspective. Possible values: incoming, outgoing.
     * @param orderID ID of the order.
     * @param paymentID ID of the payment.
-    * @param paymentTransaction 
+    * @param paymentTransaction Required fields: Type, DateExecuted
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async CreateTransaction (direction: 'Incoming' | 'Outgoing', orderID: string, paymentID: string, paymentTransaction: PaymentTransaction,  accessToken?: string ): Promise<Payment> {
+    public async CreateTransaction (direction: 'Incoming' | 'Outgoing', orderID: string, paymentID: string, paymentTransaction: PaymentTransaction,  accessToken?: string ): Promise<Required<Payment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orders/${direction}/${orderID}/payments/${paymentID}/transactions`, { data: paymentTransaction, params: { accessToken, impersonating } }  );
@@ -102,7 +102,7 @@ class Payments {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * Payments.As().List() // lists Payments using the impersonated users' token

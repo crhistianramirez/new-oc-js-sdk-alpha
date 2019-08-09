@@ -1,5 +1,5 @@
 
 export interface ProductCatalogAssignment {
-    CatalogID: string;
-    ProductID: string;
+    CatalogID?: string;
+    ProductID?: string;
 }

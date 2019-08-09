@@ -16,7 +16,7 @@ class Promotions {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListPromotion> {
+    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListPromotion>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -25,10 +25,10 @@ class Promotions {
     }
 
    /**
-    * @param promotion 
+    * @param promotion Required fields: Code, EligibleExpression, ValueExpression
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (promotion: Promotion,  accessToken?: string ): Promise<Promotion> {
+    public async Create (promotion: Promotion,  accessToken?: string ): Promise<Required<Promotion>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/promotions`, { data: promotion, params: { accessToken, impersonating } }  );
@@ -38,7 +38,7 @@ class Promotions {
     * @param promotionID ID of the promotion.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (promotionID: string,  accessToken?: string ): Promise<Promotion> {
+    public async Get (promotionID: string,  accessToken?: string ): Promise<Required<Promotion>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/promotions/${promotionID}`, { params: { accessToken, impersonating } } );
@@ -46,10 +46,10 @@ class Promotions {
 
    /**
     * @param promotionID ID of the promotion.
-    * @param promotion 
+    * @param promotion Required fields: Code, EligibleExpression, ValueExpression
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (promotionID: string, promotion: Promotion,  accessToken?: string ): Promise<Promotion> {
+    public async Save (promotionID: string, promotion: Promotion,  accessToken?: string ): Promise<Required<Promotion>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/promotions/${promotionID}`, { data: promotion, params: { accessToken, impersonating } }  );
@@ -70,7 +70,7 @@ class Promotions {
     * @param promotion 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (promotionID: string, promotion: Promotion,  accessToken?: string ): Promise<Promotion> {
+    public async Patch (promotionID: string, promotion: Partial<Promotion>,  accessToken?: string ): Promise<Required<Promotion>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/promotions/${promotionID}`, { data: promotion, params: { accessToken, impersonating } }  );
@@ -99,14 +99,14 @@ class Promotions {
     * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListAssignments ( options: { buyerID?: string, promotionID?: string, userID?: string, userGroupID?: string, level?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<ListPromotionAssignment> {
+    public async ListAssignments ( options: { buyerID?: string, promotionID?: string, userID?: string, userGroupID?: string, level?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<Required<ListPromotionAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/promotions/assignments`, { params: { ...options, accessToken, impersonating } } );
     }
 
    /**
-    * @param promotionAssignment 
+    * @param promotionAssignment Required fields: PromotionID, BuyerID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SaveAssignment (promotionAssignment: PromotionAssignment,  accessToken?: string ): Promise<void> {
@@ -117,7 +117,7 @@ class Promotions {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * Promotions.As().List() // lists Promotions using the impersonated users' token

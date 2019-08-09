@@ -16,7 +16,7 @@ class SecurityProfiles {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListSecurityProfile> {
+    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListSecurityProfile>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -25,10 +25,10 @@ class SecurityProfiles {
     }
 
    /**
-    * @param securityProfile 
+    * @param securityProfile Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (securityProfile: SecurityProfile,  accessToken?: string ): Promise<SecurityProfile> {
+    public async Create (securityProfile: SecurityProfile,  accessToken?: string ): Promise<Required<SecurityProfile>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/securityprofiles`, { data: securityProfile, params: { accessToken, impersonating } }  );
@@ -38,7 +38,7 @@ class SecurityProfiles {
     * @param securityProfileID ID of the security profile.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (securityProfileID: string,  accessToken?: string ): Promise<SecurityProfile> {
+    public async Get (securityProfileID: string,  accessToken?: string ): Promise<Required<SecurityProfile>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/securityprofiles/${securityProfileID}`, { params: { accessToken, impersonating } } );
@@ -46,10 +46,10 @@ class SecurityProfiles {
 
    /**
     * @param securityProfileID ID of the security profile.
-    * @param securityProfile 
+    * @param securityProfile Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (securityProfileID: string, securityProfile: SecurityProfile,  accessToken?: string ): Promise<SecurityProfile> {
+    public async Save (securityProfileID: string, securityProfile: SecurityProfile,  accessToken?: string ): Promise<Required<SecurityProfile>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/securityprofiles/${securityProfileID}`, { data: securityProfile, params: { accessToken, impersonating } }  );
@@ -70,7 +70,7 @@ class SecurityProfiles {
     * @param securityProfile 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (securityProfileID: string, securityProfile: SecurityProfile,  accessToken?: string ): Promise<SecurityProfile> {
+    public async Patch (securityProfileID: string, securityProfile: Partial<SecurityProfile>,  accessToken?: string ): Promise<Required<SecurityProfile>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/securityprofiles/${securityProfileID}`, { data: securityProfile, params: { accessToken, impersonating } }  );
@@ -102,14 +102,14 @@ class SecurityProfiles {
     * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListAssignments ( options: { buyerID?: string, supplierID?: string, securityProfileID?: string, userID?: string, userGroupID?: string, commerceRole?: string, level?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<ListSecurityProfileAssignment> {
+    public async ListAssignments ( options: { buyerID?: string, supplierID?: string, securityProfileID?: string, userID?: string, userGroupID?: string, commerceRole?: string, level?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<Required<ListSecurityProfileAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/securityprofiles/assignments`, { params: { ...options, accessToken, impersonating } } );
     }
 
    /**
-    * @param securityProfileAssignment 
+    * @param securityProfileAssignment Required fields: SecurityProfileID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SaveAssignment (securityProfileAssignment: SecurityProfileAssignment,  accessToken?: string ): Promise<void> {
@@ -120,7 +120,7 @@ class SecurityProfiles {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * SecurityProfiles.As().List() // lists SecurityProfiles using the impersonated users' token

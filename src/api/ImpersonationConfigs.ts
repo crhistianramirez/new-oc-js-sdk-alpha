@@ -14,7 +14,7 @@ class ImpersonationConfigs {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListImpersonationConfig> {
+    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListImpersonationConfig>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -23,10 +23,10 @@ class ImpersonationConfigs {
     }
 
    /**
-    * @param impersonationConfig 
+    * @param impersonationConfig Required fields: BuyerID, SecurityProfileID, ClientID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (impersonationConfig: ImpersonationConfig,  accessToken?: string ): Promise<ImpersonationConfig> {
+    public async Create (impersonationConfig: ImpersonationConfig,  accessToken?: string ): Promise<Required<ImpersonationConfig>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/impersonationconfig`, { data: impersonationConfig, params: { accessToken, impersonating } }  );
@@ -36,7 +36,7 @@ class ImpersonationConfigs {
     * @param impersonationConfigID ID of the impersonation config.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (impersonationConfigID: string,  accessToken?: string ): Promise<ImpersonationConfig> {
+    public async Get (impersonationConfigID: string,  accessToken?: string ): Promise<Required<ImpersonationConfig>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/impersonationconfig/${impersonationConfigID}`, { params: { accessToken, impersonating } } );
@@ -44,10 +44,10 @@ class ImpersonationConfigs {
 
    /**
     * @param impersonationConfigID ID of the impersonation config.
-    * @param impersonationConfig 
+    * @param impersonationConfig Required fields: BuyerID, SecurityProfileID, ClientID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (impersonationConfigID: string, impersonationConfig: ImpersonationConfig,  accessToken?: string ): Promise<ImpersonationConfig> {
+    public async Save (impersonationConfigID: string, impersonationConfig: ImpersonationConfig,  accessToken?: string ): Promise<Required<ImpersonationConfig>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/impersonationconfig/${impersonationConfigID}`, { data: impersonationConfig, params: { accessToken, impersonating } }  );
@@ -68,7 +68,7 @@ class ImpersonationConfigs {
     * @param impersonationConfig 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (impersonationConfigID: string, impersonationConfig: ImpersonationConfig,  accessToken?: string ): Promise<ImpersonationConfig> {
+    public async Patch (impersonationConfigID: string, impersonationConfig: Partial<ImpersonationConfig>,  accessToken?: string ): Promise<Required<ImpersonationConfig>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/impersonationconfig/${impersonationConfigID}`, { data: impersonationConfig, params: { accessToken, impersonating } }  );
@@ -76,7 +76,7 @@ class ImpersonationConfigs {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * ImpersonationConfigs.As().List() // lists ImpersonationConfigs using the impersonated users' token

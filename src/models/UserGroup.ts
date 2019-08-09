@@ -1,7 +1,7 @@
 
 export interface UserGroup {
-    ID: string;
+    ID?: string;
     Name: string;
-    Description: string;
-    xp: any;
+    Description?: string;
+    xp?: any;
 }

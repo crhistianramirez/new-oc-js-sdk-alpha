@@ -4,6 +4,6 @@ import { {{this}} } from './{{this}}';
 
 export interface {{model.name }} {
     {{#model.properties}}
-    {{ name }}: {{getType this}};
+    {{ name }}{{#if isRequired}}:{{else}}?:{{/if}} {{getType this}};
     {{/model.properties}}
 }

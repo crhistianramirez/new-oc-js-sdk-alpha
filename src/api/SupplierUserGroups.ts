@@ -17,7 +17,7 @@ class SupplierUserGroups {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List (supplierID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListUserGroup> {
+    public async List (supplierID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListUserGroup>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -27,10 +27,10 @@ class SupplierUserGroups {
 
    /**
     * @param supplierID ID of the supplier.
-    * @param userGroup 
+    * @param userGroup Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (supplierID: string, userGroup: UserGroup,  accessToken?: string ): Promise<UserGroup> {
+    public async Create (supplierID: string, userGroup: UserGroup,  accessToken?: string ): Promise<Required<UserGroup>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/suppliers/${supplierID}/usergroups`, { data: userGroup, params: { accessToken, impersonating } }  );
@@ -41,7 +41,7 @@ class SupplierUserGroups {
     * @param userGroupID ID of the user group.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (supplierID: string, userGroupID: string,  accessToken?: string ): Promise<UserGroup> {
+    public async Get (supplierID: string, userGroupID: string,  accessToken?: string ): Promise<Required<UserGroup>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/suppliers/${supplierID}/usergroups/${userGroupID}`, { params: { accessToken, impersonating } } );
@@ -50,10 +50,10 @@ class SupplierUserGroups {
    /**
     * @param supplierID ID of the supplier.
     * @param userGroupID ID of the user group.
-    * @param userGroup 
+    * @param userGroup Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (supplierID: string, userGroupID: string, userGroup: UserGroup,  accessToken?: string ): Promise<UserGroup> {
+    public async Save (supplierID: string, userGroupID: string, userGroup: UserGroup,  accessToken?: string ): Promise<Required<UserGroup>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/suppliers/${supplierID}/usergroups/${userGroupID}`, { data: userGroup, params: { accessToken, impersonating } }  );
@@ -76,7 +76,7 @@ class SupplierUserGroups {
     * @param userGroup 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (supplierID: string, userGroupID: string, userGroup: UserGroup,  accessToken?: string ): Promise<UserGroup> {
+    public async Patch (supplierID: string, userGroupID: string, userGroup: Partial<UserGroup>,  accessToken?: string ): Promise<Required<UserGroup>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/suppliers/${supplierID}/usergroups/${userGroupID}`, { data: userGroup, params: { accessToken, impersonating } }  );
@@ -102,7 +102,7 @@ class SupplierUserGroups {
     * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListUserAssignments (supplierID: string,  options: { userGroupID?: string, userID?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<ListUserGroupAssignment> {
+    public async ListUserAssignments (supplierID: string,  options: { userGroupID?: string, userID?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<Required<ListUserGroupAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/suppliers/${supplierID}/usergroups/assignments`, { params: { ...options, accessToken, impersonating } } );
@@ -113,7 +113,7 @@ class SupplierUserGroups {
     * @param userGroupAssignment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SaveUserAssignment (supplierID: string, userGroupAssignment: UserGroupAssignment,  accessToken?: string ): Promise<void> {
+    public async SaveUserAssignment (supplierID: string, userGroupAssignment: Partial<UserGroupAssignment>,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/suppliers/${supplierID}/usergroups/assignments`, { data: userGroupAssignment, params: { accessToken, impersonating } }  );
@@ -121,7 +121,7 @@ class SupplierUserGroups {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * SupplierUserGroups.As().List() // lists SupplierUserGroups using the impersonated users' token

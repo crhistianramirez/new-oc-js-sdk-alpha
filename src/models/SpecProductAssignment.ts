@@ -1,7 +1,7 @@
 
 export interface SpecProductAssignment {
-    SpecID: string;
-    ProductID: string;
-    DefaultValue: string;
-    DefaultOptionID: string;
+    SpecID?: string;
+    ProductID?: string;
+    DefaultValue?: string;
+    DefaultOptionID?: string;
 }

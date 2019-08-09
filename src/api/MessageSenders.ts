@@ -18,7 +18,7 @@ class MessageSenders {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListMessageSender> {
+    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListMessageSender>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -27,10 +27,10 @@ class MessageSenders {
     }
 
    /**
-    * @param messageSender 
+    * @param messageSender Required fields: Name, MessageTypes, URL, SharedKey
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (messageSender: MessageSender,  accessToken?: string ): Promise<MessageSender> {
+    public async Create (messageSender: MessageSender,  accessToken?: string ): Promise<Required<MessageSender>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/messagesenders`, { data: messageSender, params: { accessToken, impersonating } }  );
@@ -40,7 +40,7 @@ class MessageSenders {
     * @param messageSenderID ID of the message sender.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (messageSenderID: string,  accessToken?: string ): Promise<MessageSender> {
+    public async Get (messageSenderID: string,  accessToken?: string ): Promise<Required<MessageSender>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/messagesenders/${messageSenderID}`, { params: { accessToken, impersonating } } );
@@ -48,10 +48,10 @@ class MessageSenders {
 
    /**
     * @param messageSenderID ID of the message sender.
-    * @param messageSender 
+    * @param messageSender Required fields: Name, MessageTypes, URL, SharedKey
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (messageSenderID: string, messageSender: MessageSender,  accessToken?: string ): Promise<MessageSender> {
+    public async Save (messageSenderID: string, messageSender: MessageSender,  accessToken?: string ): Promise<Required<MessageSender>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/messagesenders/${messageSenderID}`, { data: messageSender, params: { accessToken, impersonating } }  );
@@ -72,7 +72,7 @@ class MessageSenders {
     * @param messageSender 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (messageSenderID: string, messageSender: MessageSender,  accessToken?: string ): Promise<MessageSender> {
+    public async Patch (messageSenderID: string, messageSender: Partial<MessageSender>,  accessToken?: string ): Promise<Required<MessageSender>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/messagesenders/${messageSenderID}`, { data: messageSender, params: { accessToken, impersonating } }  );
@@ -103,14 +103,14 @@ class MessageSenders {
     * @param options.supplierID ID of the supplier.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListAssignments ( options: { buyerID?: string, messageSenderID?: string, userID?: string, userGroupID?: string, level?: string, page?: number, pageSize?: number, supplierID?: string } , accessToken?: string ): Promise<ListMessageSenderAssignment> {
+    public async ListAssignments ( options: { buyerID?: string, messageSenderID?: string, userID?: string, userGroupID?: string, level?: string, page?: number, pageSize?: number, supplierID?: string } , accessToken?: string ): Promise<Required<ListMessageSenderAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/messagesenders/assignments`, { params: { ...options, accessToken, impersonating } } );
     }
 
    /**
-    * @param messageSenderAssignment 
+    * @param messageSenderAssignment Required fields: MessageSenderID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SaveAssignment (messageSenderAssignment: MessageSenderAssignment,  accessToken?: string ): Promise<void> {
@@ -128,7 +128,7 @@ class MessageSenders {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListCCListenerAssignments ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListMessageCCListenerAssignment> {
+    public async ListCCListenerAssignments ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListMessageCCListenerAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -140,7 +140,7 @@ class MessageSenders {
     * @param messageCCListenerAssignment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SaveCCListenerAssignment (messageCCListenerAssignment: MessageCCListenerAssignment,  accessToken?: string ): Promise<void> {
+    public async SaveCCListenerAssignment (messageCCListenerAssignment: Partial<MessageCCListenerAssignment>,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/messagesenders/CCListenerAssignments`, { data: messageCCListenerAssignment, params: { accessToken, impersonating } }  );
@@ -148,7 +148,7 @@ class MessageSenders {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * MessageSenders.As().List() // lists MessageSenders using the impersonated users' token

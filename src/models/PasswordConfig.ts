@@ -1,4 +1,4 @@
 
 export interface PasswordConfig {
-    ExpireInDays: number;
+    ExpireInDays?: number;
 }

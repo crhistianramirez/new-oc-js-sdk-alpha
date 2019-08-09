@@ -1,5 +1,5 @@
 
 export interface WebhookRoute {
-    Route: string;
-    Verb: string;
+    Route?: string;
+    Verb?: string;
 }

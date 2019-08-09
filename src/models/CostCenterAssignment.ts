@@ -1,5 +1,5 @@
 
 export interface CostCenterAssignment {
-    CostCenterID: string;
-    UserGroupID: string;
+    CostCenterID?: string;
+    UserGroupID?: string;
 }

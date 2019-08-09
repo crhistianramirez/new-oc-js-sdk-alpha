@@ -1,6 +1,6 @@
 
 export interface CategoryProductAssignment {
-    CategoryID: string;
-    ProductID: string;
-    ListOrder: number;
+    CategoryID?: string;
+    ProductID?: string;
+    ListOrder?: number;
 }

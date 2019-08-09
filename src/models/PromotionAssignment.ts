@@ -1,6 +1,6 @@
 
 export interface PromotionAssignment {
-    PromotionID: string;
-    BuyerID: string;
-    UserGroupID: string;
+    PromotionID?: string;
+    BuyerID?: string;
+    UserGroupID?: string;
 }

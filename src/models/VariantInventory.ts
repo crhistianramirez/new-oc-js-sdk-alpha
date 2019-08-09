@@ -1,5 +1,5 @@
 
 export interface VariantInventory {
-    QuantityAvailable: number;
-    LastUpdated: string;
+    QuantityAvailable?: number;
+    LastUpdated?: string;
 }

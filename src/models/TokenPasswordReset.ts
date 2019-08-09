@@ -1,4 +1,4 @@
 
 export interface TokenPasswordReset {
-    NewPassword: string;
+    NewPassword?: string;
 }

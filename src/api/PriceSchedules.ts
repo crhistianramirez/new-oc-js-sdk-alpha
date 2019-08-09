@@ -15,7 +15,7 @@ class PriceSchedules {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListPriceSchedule> {
+    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListPriceSchedule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -24,10 +24,10 @@ class PriceSchedules {
     }
 
    /**
-    * @param priceSchedule 
+    * @param priceSchedule Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (priceSchedule: PriceSchedule,  accessToken?: string ): Promise<PriceSchedule> {
+    public async Create (priceSchedule: PriceSchedule,  accessToken?: string ): Promise<Required<PriceSchedule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/priceschedules`, { data: priceSchedule, params: { accessToken, impersonating } }  );
@@ -37,7 +37,7 @@ class PriceSchedules {
     * @param priceScheduleID ID of the price schedule.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (priceScheduleID: string,  accessToken?: string ): Promise<PriceSchedule> {
+    public async Get (priceScheduleID: string,  accessToken?: string ): Promise<Required<PriceSchedule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/priceschedules/${priceScheduleID}`, { params: { accessToken, impersonating } } );
@@ -45,10 +45,10 @@ class PriceSchedules {
 
    /**
     * @param priceScheduleID ID of the price schedule.
-    * @param priceSchedule 
+    * @param priceSchedule Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (priceScheduleID: string, priceSchedule: PriceSchedule,  accessToken?: string ): Promise<PriceSchedule> {
+    public async Save (priceScheduleID: string, priceSchedule: PriceSchedule,  accessToken?: string ): Promise<Required<PriceSchedule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/priceschedules/${priceScheduleID}`, { data: priceSchedule, params: { accessToken, impersonating } }  );
@@ -69,7 +69,7 @@ class PriceSchedules {
     * @param priceSchedule 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (priceScheduleID: string, priceSchedule: PriceSchedule,  accessToken?: string ): Promise<PriceSchedule> {
+    public async Patch (priceScheduleID: string, priceSchedule: Partial<PriceSchedule>,  accessToken?: string ): Promise<Required<PriceSchedule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/priceschedules/${priceScheduleID}`, { data: priceSchedule, params: { accessToken, impersonating } }  );
@@ -77,10 +77,10 @@ class PriceSchedules {
 
    /**
     * @param priceScheduleID ID of the price schedule.
-    * @param priceBreak 
+    * @param priceBreak Required fields: Quantity, Price
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SavePriceBreak (priceScheduleID: string, priceBreak: PriceBreak,  accessToken?: string ): Promise<PriceSchedule> {
+    public async SavePriceBreak (priceScheduleID: string, priceBreak: PriceBreak,  accessToken?: string ): Promise<Required<PriceSchedule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/priceschedules/${priceScheduleID}/PriceBreaks`, { data: priceBreak, params: { accessToken, impersonating } }  );
@@ -99,7 +99,7 @@ class PriceSchedules {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * PriceSchedules.As().List() // lists PriceSchedules using the impersonated users' token

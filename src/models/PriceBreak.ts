@@ -1,5 +1,5 @@
 
 export interface PriceBreak {
-    Quantity: number;
-    Price: number;
+    Quantity?: number;
+    Price?: number;
 }

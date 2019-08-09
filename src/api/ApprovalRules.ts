@@ -15,7 +15,7 @@ class ApprovalRules {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List (buyerID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListApprovalRule> {
+    public async List (buyerID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListApprovalRule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -25,10 +25,10 @@ class ApprovalRules {
 
    /**
     * @param buyerID ID of the buyer.
-    * @param approvalRule 
+    * @param approvalRule Required fields: ApprovingGroupID, RuleExpression
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (buyerID: string, approvalRule: ApprovalRule,  accessToken?: string ): Promise<ApprovalRule> {
+    public async Create (buyerID: string, approvalRule: ApprovalRule,  accessToken?: string ): Promise<Required<ApprovalRule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/buyers/${buyerID}/approvalrules`, { data: approvalRule, params: { accessToken, impersonating } }  );
@@ -39,7 +39,7 @@ class ApprovalRules {
     * @param approvalRuleID ID of the approval rule.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (buyerID: string, approvalRuleID: string,  accessToken?: string ): Promise<ApprovalRule> {
+    public async Get (buyerID: string, approvalRuleID: string,  accessToken?: string ): Promise<Required<ApprovalRule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyers/${buyerID}/approvalrules/${approvalRuleID}`, { params: { accessToken, impersonating } } );
@@ -48,10 +48,10 @@ class ApprovalRules {
    /**
     * @param buyerID ID of the buyer.
     * @param approvalRuleID ID of the approval rule.
-    * @param approvalRule 
+    * @param approvalRule Required fields: ApprovingGroupID, RuleExpression
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (buyerID: string, approvalRuleID: string, approvalRule: ApprovalRule,  accessToken?: string ): Promise<ApprovalRule> {
+    public async Save (buyerID: string, approvalRuleID: string, approvalRule: ApprovalRule,  accessToken?: string ): Promise<Required<ApprovalRule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/buyers/${buyerID}/approvalrules/${approvalRuleID}`, { data: approvalRule, params: { accessToken, impersonating } }  );
@@ -74,7 +74,7 @@ class ApprovalRules {
     * @param approvalRule 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (buyerID: string, approvalRuleID: string, approvalRule: ApprovalRule,  accessToken?: string ): Promise<ApprovalRule> {
+    public async Patch (buyerID: string, approvalRuleID: string, approvalRule: Partial<ApprovalRule>,  accessToken?: string ): Promise<Required<ApprovalRule>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/buyers/${buyerID}/approvalrules/${approvalRuleID}`, { data: approvalRule, params: { accessToken, impersonating } }  );
@@ -82,7 +82,7 @@ class ApprovalRules {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * ApprovalRules.As().List() // lists ApprovalRules using the impersonated users' token

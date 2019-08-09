@@ -1,7 +1,7 @@
 
 export interface Supplier {
-    ID: string;
+    ID?: string;
     Name: string;
-    Active: boolean;
-    xp: any;
+    Active?: boolean;
+    xp?: any;
 }

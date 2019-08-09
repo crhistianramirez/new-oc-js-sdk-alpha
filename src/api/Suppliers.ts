@@ -14,7 +14,7 @@ class Suppliers {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListSupplier> {
+    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListSupplier>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -23,10 +23,10 @@ class Suppliers {
     }
 
    /**
-    * @param supplier 
+    * @param supplier Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (supplier: Supplier,  accessToken?: string ): Promise<Supplier> {
+    public async Create (supplier: Supplier,  accessToken?: string ): Promise<Required<Supplier>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/suppliers`, { data: supplier, params: { accessToken, impersonating } }  );
@@ -36,7 +36,7 @@ class Suppliers {
     * @param supplierID ID of the supplier.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (supplierID: string,  accessToken?: string ): Promise<Supplier> {
+    public async Get (supplierID: string,  accessToken?: string ): Promise<Required<Supplier>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/suppliers/${supplierID}`, { params: { accessToken, impersonating } } );
@@ -44,10 +44,10 @@ class Suppliers {
 
    /**
     * @param supplierID ID of the supplier.
-    * @param supplier 
+    * @param supplier Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (supplierID: string, supplier: Supplier,  accessToken?: string ): Promise<Supplier> {
+    public async Save (supplierID: string, supplier: Supplier,  accessToken?: string ): Promise<Required<Supplier>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/suppliers/${supplierID}`, { data: supplier, params: { accessToken, impersonating } }  );
@@ -68,7 +68,7 @@ class Suppliers {
     * @param supplier 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (supplierID: string, supplier: Supplier,  accessToken?: string ): Promise<Supplier> {
+    public async Patch (supplierID: string, supplier: Partial<Supplier>,  accessToken?: string ): Promise<Required<Supplier>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/suppliers/${supplierID}`, { data: supplier, params: { accessToken, impersonating } }  );
@@ -76,7 +76,7 @@ class Suppliers {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * Suppliers.As().List() // lists Suppliers using the impersonated users' token

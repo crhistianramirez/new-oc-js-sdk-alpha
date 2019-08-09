@@ -2,6 +2,6 @@ import { CostCenterAssignment } from './CostCenterAssignment';
 import { Meta } from './Meta';
 
 export interface ListCostCenterAssignment {
-    Items: CostCenterAssignment[];
-    Meta: Meta;
+    Items?: Partial<CostCenterAssignment>[];
+    Meta?: Partial<Meta>;
 }

@@ -6,7 +6,7 @@ class ForgottenPassword {
     private impersonating:boolean = false;
 
    /**
-    * @param passwordResetRequest 
+    * @param passwordResetRequest Required fields: ClientID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SendVerificationCode (passwordResetRequest: PasswordResetRequest,  accessToken?: string ): Promise<void> {
@@ -17,7 +17,7 @@ class ForgottenPassword {
 
    /**
     * @param verificationCode Verification code of the password reset.
-    * @param passwordReset 
+    * @param passwordReset Required fields: ClientID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async ResetPasswordByVerificationCode (verificationCode: string, passwordReset: PasswordReset,  accessToken?: string ): Promise<void> {
@@ -28,7 +28,7 @@ class ForgottenPassword {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * ForgottenPassword.As().List() // lists ForgottenPassword using the impersonated users' token

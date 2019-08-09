@@ -16,7 +16,7 @@ class ApiClients {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListApiClient> {
+    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListApiClient>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -25,10 +25,10 @@ class ApiClients {
     }
 
    /**
-    * @param apiClient 
+    * @param apiClient Required fields: AccessTokenDuration, AppName
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (apiClient: ApiClient,  accessToken?: string ): Promise<ApiClient> {
+    public async Create (apiClient: ApiClient,  accessToken?: string ): Promise<Required<ApiClient>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/apiclients`, { data: apiClient, params: { accessToken, impersonating } }  );
@@ -38,7 +38,7 @@ class ApiClients {
     * @param apiClientID ID of the api client.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (apiClientID: string,  accessToken?: string ): Promise<ApiClient> {
+    public async Get (apiClientID: string,  accessToken?: string ): Promise<Required<ApiClient>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/apiclients/${apiClientID}`, { params: { accessToken, impersonating } } );
@@ -46,10 +46,10 @@ class ApiClients {
 
    /**
     * @param apiClientID ID of the api client.
-    * @param apiClient 
+    * @param apiClient Required fields: AccessTokenDuration, AppName
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (apiClientID: string, apiClient: ApiClient,  accessToken?: string ): Promise<ApiClient> {
+    public async Save (apiClientID: string, apiClient: ApiClient,  accessToken?: string ): Promise<Required<ApiClient>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/apiclients/${apiClientID}`, { data: apiClient, params: { accessToken, impersonating } }  );
@@ -70,7 +70,7 @@ class ApiClients {
     * @param apiClient 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (apiClientID: string, apiClient: ApiClient,  accessToken?: string ): Promise<ApiClient> {
+    public async Patch (apiClientID: string, apiClient: Partial<ApiClient>,  accessToken?: string ): Promise<Required<ApiClient>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/apiclients/${apiClientID}`, { data: apiClient, params: { accessToken, impersonating } }  );
@@ -84,7 +84,7 @@ class ApiClients {
     * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListAssignments ( options: { apiClientID?: string, buyerID?: string, supplierID?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<ListApiClientAssignment> {
+    public async ListAssignments ( options: { apiClientID?: string, buyerID?: string, supplierID?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<Required<ListApiClientAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/apiclients/assignments`, { params: { ...options, accessToken, impersonating } } );
@@ -94,7 +94,7 @@ class ApiClients {
     * @param apiClientAssignment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SaveAssignment (apiClientAssignment: ApiClientAssignment,  accessToken?: string ): Promise<void> {
+    public async SaveAssignment (apiClientAssignment: Partial<ApiClientAssignment>,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/apiclients/assignments`, { data: apiClientAssignment, params: { accessToken, impersonating } }  );
@@ -124,7 +124,7 @@ class ApiClients {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * ApiClients.As().List() // lists ApiClients using the impersonated users' token

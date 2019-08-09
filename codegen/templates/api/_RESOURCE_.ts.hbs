@@ -8,10 +8,10 @@ class {{resource.id}} {
 
     {{#resource.operations}}
    /**{{#allParams}}
-    * @param {{#if isQueryParam}}options.{{name}} {{description}}{{else}}{{name}} {{description}}{{/if}}{{/allParams}}
+    * @param {{#if isQueryParam}}options.{{name}} {{description}}{{else}}{{name}} {{description}}{{#if isBodyParam}}{{#if hasRequiredFields}}Required fields: {{commaSeparate requiredFields}}{{/if}}{{/if}}{{/if}}{{/allParams}}
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async {{name}} ({{#allParams}}{{#unless isQueryParam}}{{name}}: {{getType this}}, {{/unless}}{{/allParams}} {{#if hasQueryParams}}options: { {{#queryParams}}{{name}}?: {{getType this}}{{#unless @last}}, {{/unless}}{{/queryParams}} } {{#if hasFilters}}= { filters: {}}{{/if}}, {{/if}}accessToken?: string ): Promise<{{#if hasReturnType}}{{returnType}}{{else}}void{{/if}}> {
+    public async {{name}} ({{#allParams}}{{#unless isQueryParam}}{{name}}: {{getType this}}, {{/unless}}{{/allParams}} {{#if hasQueryParams}}options: { {{#queryParams}}{{name}}?: {{getType this}}{{#unless @last}}, {{/unless}}{{/queryParams}} } {{#if hasFilters}}= { filters: {}}{{/if}}, {{/if}}accessToken?: string ): Promise<{{#if hasReturnType}}Required<{{returnType}}>{{else}}void{{/if}}> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         {{#if hasFilters}}
@@ -24,7 +24,7 @@ class {{resource.id}} {
     {{/resource.operations}}
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * {{resource.id}}.As().List() // lists {{resource.id}} using the impersonated users' token

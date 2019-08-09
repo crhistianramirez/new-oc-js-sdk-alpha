@@ -1,17 +1,17 @@
 
 export interface ApiClient {
-    ID: string;
-    ClientSecret: string;
+    ID?: string;
+    ClientSecret?: string;
     AccessTokenDuration: number;
-    Active: boolean;
+    Active?: boolean;
     AppName: string;
-    RefreshTokenDuration: number;
-    DefaultContextUserName: string;
-    xp: any;
-    AllowAnyBuyer: boolean;
-    AllowAnySupplier: boolean;
-    AllowSeller: boolean;
-    IsAnonBuyer: boolean;
-    AssignedBuyerCount: number;
-    AssignedSupplierCount: number;
+    RefreshTokenDuration?: number;
+    DefaultContextUserName?: string;
+    xp?: any;
+    AllowAnyBuyer?: boolean;
+    AllowAnySupplier?: boolean;
+    AllowSeller?: boolean;
+    IsAnonBuyer?: boolean;
+    AssignedBuyerCount?: number;
+    AssignedSupplierCount?: number;
 }

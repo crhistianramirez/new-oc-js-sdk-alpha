@@ -1,9 +1,17 @@
-import axios from 'axios'
+import axios, { AxiosInstance } from 'axios'
 import { AccessToken } from '../models/AccessToken'
 import Configuration from '../configuration'
 import { SecurityProfile } from '../models/SecurityProfile'
 
 class Auth {
+  private _http: AxiosInstance
+  constructor() {
+    // create a new instance so we avoid clashes with any
+    // configurations done on default axios instance that
+    // a consumer of this SDK might use
+    this._http = axios.create()
+  }
+
   /**
    * @description this workflow is most appropriate for client apps where user is a human, ie a registered user
    *
@@ -12,7 +20,7 @@ class Auth {
    * @param client_id of the application the user is logging into
    * @param scope roles being requested - space delimited string or array
    */
-  public Login(
+  public async Login(
     username: string,
     password: string,
     clientID: string,
@@ -26,12 +34,17 @@ class Auth {
       scope: scope.join(' '),
     }
     const configuration = Configuration.Get()
-    return axios.post(configuration.baseAuthUrl, this.asQueryString(body), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Accept: 'application/json',
-      },
-    })
+    const response = await this._http.post(
+      configuration.baseAuthUrl,
+      this.asQueryString(body),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Accept: 'application/json',
+        },
+      }
+    )
+    return response.data
   }
 
   /**
@@ -45,7 +58,7 @@ class Auth {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public ElevatedLogin(
+  public async ElevatedLogin(
     clientSecret: string,
     username: string,
     password: string,
@@ -61,12 +74,17 @@ class Auth {
       client_secret: clientSecret,
     }
     const configuration = Configuration.Get()
-    return axios.post(configuration.baseAuthUrl, this.asQueryString(body), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Accept: 'application/json',
-      },
-    })
+    const response = await this._http.post(
+      configuration.baseAuthUrl,
+      this.asQueryString(body),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Accept: 'application/json',
+        },
+      }
+    )
+    return response.data
   }
 
   /**
@@ -78,7 +96,7 @@ class Auth {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public ClientCredentials(
+  public async ClientCredentials(
     clientSecret: string,
     clientID: string,
     scope: Array<SecurityProfile['Roles']>
@@ -90,12 +108,17 @@ class Auth {
       client_secret: clientSecret,
     }
     const configuration = Configuration.Get()
-    return axios.post(configuration.baseAuthUrl, this.asQueryString(body), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Accept: 'application/json',
-      },
-    })
+    const response = await this._http.post(
+      configuration.baseAuthUrl,
+      this.asQueryString(body),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Accept: 'application/json',
+        },
+      }
+    )
+    return response.data
   }
 
   /**
@@ -106,7 +129,7 @@ class Auth {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public RefreshToken(
+  public async RefreshToken(
     refreshToken: string,
     clientID: string
   ): Promise<AccessToken> {
@@ -116,12 +139,17 @@ class Auth {
       refresh_token: refreshToken,
     }
     const configuration = Configuration.Get()
-    return axios.post(configuration.baseAuthUrl, this.asQueryString(body), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Accept: 'application/json',
-      },
-    })
+    const response = await this._http.post(
+      configuration.baseAuthUrl,
+      this.asQueryString(body),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Accept: 'application/json',
+        },
+      }
+    )
+    return response.data
   }
 
   /**
@@ -132,7 +160,7 @@ class Auth {
    * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
    * @param reportProgress flag to report request and response progress.
    */
-  public Anonymous(
+  public async Anonymous(
     clientID: string,
     scope: Array<SecurityProfile['Roles']>
   ): Promise<AccessToken> {
@@ -142,12 +170,17 @@ class Auth {
       scope: scope.join(' '),
     }
     const configuration = Configuration.Get()
-    return axios.post(configuration.baseAuthUrl, this.asQueryString(body), {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Accept: 'application/json',
-      },
-    })
+    const response = await this._http.post(
+      configuration.baseAuthUrl,
+      this.asQueryString(body),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Accept: 'application/json',
+        },
+      }
+    )
+    return response.data
   }
 
   private asQueryString(body: { [key: string]: string }): string {

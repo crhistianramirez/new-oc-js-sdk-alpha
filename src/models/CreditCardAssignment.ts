@@ -1,6 +1,6 @@
 
 export interface CreditCardAssignment {
-    CreditCardID: string;
-    UserID: string;
-    UserGroupID: string;
+    CreditCardID?: string;
+    UserID?: string;
+    UserGroupID?: string;
 }

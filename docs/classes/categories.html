@@ -83,7 +83,7 @@
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
 									<dt>description</dt>
-									<dd><p>enables impersonation by calling the following method with the stores impersonation token</p>
+									<dd><p>enables impersonation by calling the subsequent method with the stored impersonation token</p>
 									</dd>
 									<dt>example</dt>
 									<dd><p>Categories.As().List() // lists Categories using the impersonated users&#39; token</p>
@@ -98,7 +98,7 @@
 					<a name="create" class="tsd-anchor"></a>
 					<h3>Create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Create<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, category<span class="tsd-signature-symbol">: </span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Create<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, category<span class="tsd-signature-symbol">: </span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -116,6 +116,9 @@
 								</li>
 								<li>
 									<h5>category: <a href="../interfaces/category.html" class="tsd-signature-type">Category</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required fields: Name</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -124,7 +127,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -272,7 +275,7 @@
 					<a name="get" class="tsd-anchor"></a>
 					<h3>Get</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, categoryID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, categoryID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -301,7 +304,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -309,7 +312,7 @@
 					<a name="list" class="tsd-anchor"></a>
 					<h3>List</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listcategory.html" class="tsd-signature-type">ListCategory</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">List<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listcategory.html" class="tsd-signature-type">ListCategory</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -379,7 +382,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listcategory.html" class="tsd-signature-type">ListCategory</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listcategory.html" class="tsd-signature-type">ListCategory</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -387,7 +390,7 @@
 					<a name="listassignments" class="tsd-anchor"></a>
 					<h3>List<wbr>Assignments</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<wbr>Assignments<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listcategoryassignment.html" class="tsd-signature-type">ListCategoryAssignment</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Assignments<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listcategoryassignment.html" class="tsd-signature-type">ListCategoryAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -457,7 +460,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listcategoryassignment.html" class="tsd-signature-type">ListCategoryAssignment</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listcategoryassignment.html" class="tsd-signature-type">ListCategoryAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -465,7 +468,7 @@
 					<a name="listproductassignments" class="tsd-anchor"></a>
 					<h3>List<wbr>Product<wbr>Assignments</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<wbr>Product<wbr>Assignments<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listcategoryproductassignment.html" class="tsd-signature-type">ListCategoryProductAssignment</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Product<wbr>Assignments<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listcategoryproductassignment.html" class="tsd-signature-type">ListCategoryProductAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -517,7 +520,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listcategoryproductassignment.html" class="tsd-signature-type">ListCategoryProductAssignment</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listcategoryproductassignment.html" class="tsd-signature-type">ListCategoryProductAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -525,7 +528,7 @@
 					<a name="patch" class="tsd-anchor"></a>
 					<h3>Patch</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Patch<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, categoryID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, category<span class="tsd-signature-symbol">: </span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Patch<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, categoryID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, category<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -548,7 +551,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>category: <a href="../interfaces/category.html" class="tsd-signature-type">Category</a></h5>
+									<h5>category: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -557,7 +560,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -565,7 +568,7 @@
 					<a name="save" class="tsd-anchor"></a>
 					<h3>Save</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Save<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, categoryID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, category<span class="tsd-signature-symbol">: </span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Save<span class="tsd-signature-symbol">(</span>catalogID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, categoryID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, category<span class="tsd-signature-symbol">: </span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -589,6 +592,9 @@
 								</li>
 								<li>
 									<h5>category: <a href="../interfaces/category.html" class="tsd-signature-type">Category</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required fields: Name</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -597,7 +603,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/category.html" class="tsd-signature-type">Category</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -623,6 +629,9 @@
 								</li>
 								<li>
 									<h5>categoryAssignment: <a href="../interfaces/categoryassignment.html" class="tsd-signature-type">CategoryAssignment</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required fields: CategoryID, BuyerID</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -657,6 +666,9 @@
 								</li>
 								<li>
 									<h5>categoryProductAssignment: <a href="../interfaces/categoryproductassignment.html" class="tsd-signature-type">CategoryProductAssignment</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required fields: CategoryID, ProductID</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>

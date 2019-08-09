@@ -20,7 +20,7 @@ class Categories {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List (catalogID: string,  options: { depth?: string, search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListCategory> {
+    public async List (catalogID: string,  options: { depth?: string, search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListCategory>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -30,10 +30,10 @@ class Categories {
 
    /**
     * @param catalogID ID of the catalog.
-    * @param category 
+    * @param category Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (catalogID: string, category: Category,  accessToken?: string ): Promise<Category> {
+    public async Create (catalogID: string, category: Category,  accessToken?: string ): Promise<Required<Category>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/catalogs/${catalogID}/categories`, { data: category, params: { accessToken, impersonating } }  );
@@ -44,7 +44,7 @@ class Categories {
     * @param categoryID ID of the category.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (catalogID: string, categoryID: string,  accessToken?: string ): Promise<Category> {
+    public async Get (catalogID: string, categoryID: string,  accessToken?: string ): Promise<Required<Category>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/catalogs/${catalogID}/categories/${categoryID}`, { params: { accessToken, impersonating } } );
@@ -53,10 +53,10 @@ class Categories {
    /**
     * @param catalogID ID of the catalog.
     * @param categoryID ID of the category.
-    * @param category 
+    * @param category Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (catalogID: string, categoryID: string, category: Category,  accessToken?: string ): Promise<Category> {
+    public async Save (catalogID: string, categoryID: string, category: Category,  accessToken?: string ): Promise<Required<Category>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/catalogs/${catalogID}/categories/${categoryID}`, { data: category, params: { accessToken, impersonating } }  );
@@ -79,7 +79,7 @@ class Categories {
     * @param category 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (catalogID: string, categoryID: string, category: Category,  accessToken?: string ): Promise<Category> {
+    public async Patch (catalogID: string, categoryID: string, category: Partial<Category>,  accessToken?: string ): Promise<Required<Category>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/catalogs/${catalogID}/categories/${categoryID}`, { data: category, params: { accessToken, impersonating } }  );
@@ -122,7 +122,7 @@ class Categories {
     * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListAssignments (catalogID: string,  options: { categoryID?: string, buyerID?: string, userID?: string, userGroupID?: string, level?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<ListCategoryAssignment> {
+    public async ListAssignments (catalogID: string,  options: { categoryID?: string, buyerID?: string, userID?: string, userGroupID?: string, level?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<Required<ListCategoryAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/catalogs/${catalogID}/categories/assignments`, { params: { ...options, accessToken, impersonating } } );
@@ -130,7 +130,7 @@ class Categories {
 
    /**
     * @param catalogID ID of the catalog.
-    * @param categoryAssignment 
+    * @param categoryAssignment Required fields: CategoryID, BuyerID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SaveAssignment (catalogID: string, categoryAssignment: CategoryAssignment,  accessToken?: string ): Promise<void> {
@@ -147,7 +147,7 @@ class Categories {
     * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListProductAssignments (catalogID: string,  options: { categoryID?: string, productID?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<ListCategoryProductAssignment> {
+    public async ListProductAssignments (catalogID: string,  options: { categoryID?: string, productID?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<Required<ListCategoryProductAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/catalogs/${catalogID}/categories/productassignments`, { params: { ...options, accessToken, impersonating } } );
@@ -155,7 +155,7 @@ class Categories {
 
    /**
     * @param catalogID ID of the catalog.
-    * @param categoryProductAssignment 
+    * @param categoryProductAssignment Required fields: CategoryID, ProductID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SaveProductAssignment (catalogID: string, categoryProductAssignment: CategoryProductAssignment,  accessToken?: string ): Promise<void> {
@@ -166,7 +166,7 @@ class Categories {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * Categories.As().List() // lists Categories using the impersonated users' token

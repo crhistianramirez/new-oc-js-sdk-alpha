@@ -14,7 +14,7 @@ class ProductFacets {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListProductFacet> {
+    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListProductFacet>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -23,10 +23,10 @@ class ProductFacets {
     }
 
    /**
-    * @param productFacet 
+    * @param productFacet Required fields: Name, MinCount
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (productFacet: ProductFacet,  accessToken?: string ): Promise<ProductFacet> {
+    public async Create (productFacet: ProductFacet,  accessToken?: string ): Promise<Required<ProductFacet>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/productfacets`, { data: productFacet, params: { accessToken, impersonating } }  );
@@ -36,7 +36,7 @@ class ProductFacets {
     * @param productFacetID ID of the product facet.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (productFacetID: string,  accessToken?: string ): Promise<ProductFacet> {
+    public async Get (productFacetID: string,  accessToken?: string ): Promise<Required<ProductFacet>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/productfacets/${productFacetID}`, { params: { accessToken, impersonating } } );
@@ -44,10 +44,10 @@ class ProductFacets {
 
    /**
     * @param productFacetID ID of the product facet.
-    * @param productFacet 
+    * @param productFacet Required fields: Name, MinCount
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (productFacetID: string, productFacet: ProductFacet,  accessToken?: string ): Promise<ProductFacet> {
+    public async Save (productFacetID: string, productFacet: ProductFacet,  accessToken?: string ): Promise<Required<ProductFacet>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/productfacets/${productFacetID}`, { data: productFacet, params: { accessToken, impersonating } }  );
@@ -68,7 +68,7 @@ class ProductFacets {
     * @param productFacet 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (productFacetID: string, productFacet: ProductFacet,  accessToken?: string ): Promise<ProductFacet> {
+    public async Patch (productFacetID: string, productFacet: Partial<ProductFacet>,  accessToken?: string ): Promise<Required<ProductFacet>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/productfacets/${productFacetID}`, { data: productFacet, params: { accessToken, impersonating } }  );
@@ -76,7 +76,7 @@ class ProductFacets {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * ProductFacets.As().List() // lists ProductFacets using the impersonated users' token

@@ -1,4 +1,4 @@
 
 export interface MeSupplier {
-    ID: string;
+    ID?: string;
 }

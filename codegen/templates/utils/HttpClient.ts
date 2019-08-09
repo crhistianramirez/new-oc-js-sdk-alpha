@@ -6,24 +6,22 @@ import Auth from '../api/Auth'
 
 class HttpClient {
   private _session: AxiosInstance
+
   constructor() {
-    this._session = axios.create({
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    this._session.interceptors.request.use(this._tokenInterceptor)
+    // create a new instance so we avoid clashes with any
+    // configurations done on default axios instance that
+    // a consumer of this SDK might use
+    this._session = axios.create()
   }
 
   public get = async (
     path: string,
     config?: AxiosRequestConfig
   ): Promise<any> => {
-    const sdkConfig = Configuration.Get()
-    const axiosConfig = { ...config, timeout: sdkConfig.timeoutInMilliseconds }
+    const requestConfig = await this._buildRequestConfig(config)
     const response = await this._session.get(
-      `${sdkConfig.baseApiUrl}/${path}`,
-      axiosConfig
+      `${Configuration.Get().baseApiUrl}${path}`,
+      requestConfig
     )
     return response.data
   }
@@ -33,12 +31,11 @@ class HttpClient {
     data?: any,
     config?: AxiosRequestConfig
   ): Promise<any> => {
-    const sdkConfig = Configuration.Get()
-    const axiosConfig = { ...config, timeout: sdkConfig.timeoutInMilliseconds }
+    const requestConfig = await this._buildRequestConfig(config)
     const response = await this._session.post(
-      `${sdkConfig.baseApiUrl}/${path}`,
+      `${Configuration.Get().baseApiUrl}${path}`,
       data,
-      axiosConfig
+      requestConfig
     )
     return response.data
   }
@@ -48,12 +45,11 @@ class HttpClient {
     data?: any,
     config?: AxiosRequestConfig
   ): Promise<any> => {
-    const sdkConfig = Configuration.Get()
-    const axiosConfig = { ...config, timeout: sdkConfig.timeoutInMilliseconds }
+    const requestConfig = await this._buildRequestConfig(config)
     const response = await this._session.put(
-      `${sdkConfig.baseApiUrl}/${path}`,
+      `${Configuration.Get().baseApiUrl}${path}`,
       data,
-      axiosConfig
+      requestConfig
     )
     return response.data
   }
@@ -63,31 +59,31 @@ class HttpClient {
     data?: any,
     config?: AxiosRequestConfig
   ): Promise<any> => {
-    const sdkConfig = Configuration.Get()
-    const axiosConfig = { ...config, timeout: sdkConfig.timeoutInMilliseconds }
+    const requestConfig = await this._buildRequestConfig(config)
     const response = await this._session.patch(
-      `${sdkConfig.baseApiUrl}/${path}`,
+      `${Configuration.Get().baseApiUrl}${path}`,
       data,
-      axiosConfig
+      requestConfig
     )
     return response.data
   }
 
   public delete = async (path: string, config: AxiosRequestConfig) => {
-    const sdkConfig = Configuration.Get()
-    const axiosConfig = { ...config, timeout: sdkConfig.timeoutInMilliseconds }
+    const requestConfig = await this._buildRequestConfig(config)
     const response = await this._session.delete(
-      `${sdkConfig.baseApiUrl}/${path}`,
-      axiosConfig
+      `${Configuration.Get().baseApiUrl}${path}`,
+      requestConfig
     )
     return response.data
   }
 
   // sets the token on every outgoing request, will attempt to
   // refresh the token if the token is expired and there is a refresh token set
-  private async _tokenInterceptor(config: AxiosRequestConfig) {
+  private async _tokenInterceptor(
+    config: AxiosRequestConfig
+  ): Promise<AxiosRequestConfig> {
     let token = this._getToken(config)
-    if (!this._isTokenValid(token)) {
+    if (this._isTokenExpired(token)) {
       token = await this._tryRefreshToken(token)
     }
     config.headers.Authorization = `Bearer ${token}`
@@ -99,9 +95,9 @@ class HttpClient {
     if (config.params.accessToken) {
       token = config.params.accessToken
     } else if (config.params.impersonating) {
-      token = tokenService.getImpersonation()
+      token = tokenService.GetImpersonationToken()
     } else {
-      token = tokenService.getAccess()
+      token = tokenService.GetAccessToken()
     }
 
     // strip out axios params that we'vee hijacked for our own nefarious purposes
@@ -110,7 +106,7 @@ class HttpClient {
     return token
   }
 
-  private _isTokenValid(token: string): boolean {
+  private _isTokenExpired(token: string): boolean {
     if (!token) {
       return true
     }
@@ -120,18 +116,18 @@ class HttpClient {
     return decodedToken.exp < currentSecondsWithBuffer
   }
 
-  private async _tryRefreshToken(originalToken: string): Promise<string> {
-    const refreshToken = tokenService.getRefresh()
+  private async _tryRefreshToken(accessToken: string): Promise<string> {
+    const refreshToken = tokenService.GetRefreshToken()
     if (!refreshToken) {
-      return originalToken
+      return accessToken || ''
     }
     const sdkConfig = Configuration.Get()
-    if (!originalToken && !sdkConfig.clientID) {
-      return originalToken
+    if (!accessToken && !sdkConfig.clientID) {
+      return accessToken || ''
     }
     let clientID
-    if (originalToken) {
-      const decodedToken = this._parseJwt(originalToken)
+    if (accessToken) {
+      const decodedToken = this._parseJwt(accessToken)
       clientID = decodedToken.cid
     }
     if (sdkConfig.clientID) {
@@ -152,6 +148,20 @@ class HttpClient {
     )
 
     return JSON.parse(jsonPayload)
+  }
+
+  private _buildRequestConfig(
+    config?: AxiosRequestConfig
+  ): Promise<AxiosRequestConfig> {
+    const sdkConfig = Configuration.Get()
+    const requestConfig = {
+      ...config,
+      timeout: sdkConfig.timeoutInMilliseconds,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }
+    return this._tokenInterceptor(requestConfig)
   }
 }
 

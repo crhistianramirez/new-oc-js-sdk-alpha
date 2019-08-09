@@ -187,7 +187,7 @@ While typescript is not required to use this project (we compile it down to java
 
 ## 📄 License
 
-OrderCloud's Javascript SDK is an open-sourced software licensed under the [MIT license](./readmes/LICENSE).
+OrderCloud's Javascript SDK is an open-sourced software licensed under the [MIT license](./LICENSE).
 
 ## 🤝 Contributing
 

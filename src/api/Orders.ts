@@ -27,7 +27,7 @@ class Orders {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List (direction: 'Incoming' | 'Outgoing',  options: { buyerID?: string, supplierID?: string, from?: string, to?: string, search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListOrder> {
+    public async List (direction: 'Incoming' | 'Outgoing',  options: { buyerID?: string, supplierID?: string, from?: string, to?: string, search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListOrder>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -40,7 +40,7 @@ class Orders {
     * @param order 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (direction: 'Incoming' | 'Outgoing', order: Order,  accessToken?: string ): Promise<Order> {
+    public async Create (direction: 'Incoming' | 'Outgoing', order: Partial<Order>,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orders/${direction}`, { data: order, params: { accessToken, impersonating } }  );
@@ -51,7 +51,7 @@ class Orders {
     * @param orderID ID of the order.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (direction: 'Incoming' | 'Outgoing', orderID: string,  accessToken?: string ): Promise<Order> {
+    public async Get (direction: 'Incoming' | 'Outgoing', orderID: string,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/orders/${direction}/${orderID}`, { params: { accessToken, impersonating } } );
@@ -63,7 +63,7 @@ class Orders {
     * @param order 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (direction: 'Incoming' | 'Outgoing', orderID: string, order: Order,  accessToken?: string ): Promise<Order> {
+    public async Save (direction: 'Incoming' | 'Outgoing', orderID: string, order: Partial<Order>,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/orders/${direction}/${orderID}`, { data: order, params: { accessToken, impersonating } }  );
@@ -86,7 +86,7 @@ class Orders {
     * @param order 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (direction: 'Incoming' | 'Outgoing', orderID: string, order: Order,  accessToken?: string ): Promise<Order> {
+    public async Patch (direction: 'Incoming' | 'Outgoing', orderID: string, order: Partial<Order>,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/orders/${direction}/${orderID}`, { data: order, params: { accessToken, impersonating } }  );
@@ -103,7 +103,7 @@ class Orders {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListApprovals (direction: 'Incoming' | 'Outgoing', orderID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListOrderApproval> {
+    public async ListApprovals (direction: 'Incoming' | 'Outgoing', orderID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListOrderApproval>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -117,7 +117,7 @@ class Orders {
     * @param orderApprovalInfo 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Approve (direction: 'Incoming' | 'Outgoing', orderID: string, orderApprovalInfo: OrderApprovalInfo,  accessToken?: string ): Promise<Order> {
+    public async Approve (direction: 'Incoming' | 'Outgoing', orderID: string, orderApprovalInfo: Partial<OrderApprovalInfo>,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orders/${direction}/${orderID}/approve`, { data: orderApprovalInfo, params: { accessToken, impersonating } }  );
@@ -126,10 +126,10 @@ class Orders {
    /**
     * @param direction Direction of the order, from the current user's perspective. Possible values: incoming, outgoing.
     * @param orderID ID of the order.
-    * @param address 
+    * @param address Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SetBillingAddress (direction: 'Incoming' | 'Outgoing', orderID: string, address: Address,  accessToken?: string ): Promise<Order> {
+    public async SetBillingAddress (direction: 'Incoming' | 'Outgoing', orderID: string, address: Address,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/orders/${direction}/${orderID}/billto`, { data: address, params: { accessToken, impersonating } }  );
@@ -141,7 +141,7 @@ class Orders {
     * @param address 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PatchBillingAddress (direction: 'Incoming' | 'Outgoing', orderID: string, address: Address,  accessToken?: string ): Promise<Order> {
+    public async PatchBillingAddress (direction: 'Incoming' | 'Outgoing', orderID: string, address: Partial<Address>,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/orders/${direction}/${orderID}/billto`, { data: address, params: { accessToken, impersonating } }  );
@@ -152,7 +152,7 @@ class Orders {
     * @param orderID ID of the order.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Cancel (direction: 'Incoming' | 'Outgoing', orderID: string,  accessToken?: string ): Promise<Order> {
+    public async Cancel (direction: 'Incoming' | 'Outgoing', orderID: string,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orders/${direction}/${orderID}/cancel`, { params: { accessToken, impersonating } } );
@@ -164,7 +164,7 @@ class Orders {
     * @param orderApprovalInfo 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Decline (direction: 'Incoming' | 'Outgoing', orderID: string, orderApprovalInfo: OrderApprovalInfo,  accessToken?: string ): Promise<Order> {
+    public async Decline (direction: 'Incoming' | 'Outgoing', orderID: string, orderApprovalInfo: Partial<OrderApprovalInfo>,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orders/${direction}/${orderID}/decline`, { data: orderApprovalInfo, params: { accessToken, impersonating } }  );
@@ -181,7 +181,7 @@ class Orders {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListEligibleApprovers (direction: 'Incoming' | 'Outgoing', orderID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListUser> {
+    public async ListEligibleApprovers (direction: 'Incoming' | 'Outgoing', orderID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListUser>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -195,7 +195,7 @@ class Orders {
     * @param user 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PatchFromUser (direction: 'Incoming' | 'Outgoing', orderID: string, user: User,  accessToken?: string ): Promise<Order> {
+    public async PatchFromUser (direction: 'Incoming' | 'Outgoing', orderID: string, user: Partial<User>,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/orders/${direction}/${orderID}/fromuser`, { data: user, params: { accessToken, impersonating } }  );
@@ -212,7 +212,7 @@ class Orders {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListPromotions (direction: 'Incoming' | 'Outgoing', orderID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListOrderPromotion> {
+    public async ListPromotions (direction: 'Incoming' | 'Outgoing', orderID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListOrderPromotion>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -226,7 +226,7 @@ class Orders {
     * @param promoCode Promo code of the order promotion.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async AddPromotion (direction: 'Incoming' | 'Outgoing', orderID: string, promoCode: string,  accessToken?: string ): Promise<OrderPromotion> {
+    public async AddPromotion (direction: 'Incoming' | 'Outgoing', orderID: string, promoCode: string,  accessToken?: string ): Promise<Required<OrderPromotion>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orders/${direction}/${orderID}/promotions/${promoCode}`, { params: { accessToken, impersonating } } );
@@ -238,7 +238,7 @@ class Orders {
     * @param promoCode Promo code of the order.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async RemovePromotion (direction: 'Incoming' | 'Outgoing', orderID: string, promoCode: string,  accessToken?: string ): Promise<Order> {
+    public async RemovePromotion (direction: 'Incoming' | 'Outgoing', orderID: string, promoCode: string,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.delete(`/orders/${direction}/${orderID}/promotions/${promoCode}`, { params: { accessToken, impersonating } } );
@@ -250,7 +250,7 @@ class Orders {
     * @param shipment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Ship (direction: 'Incoming' | 'Outgoing', orderID: string, shipment: Shipment,  accessToken?: string ): Promise<Order> {
+    public async Ship (direction: 'Incoming' | 'Outgoing', orderID: string, shipment: Partial<Shipment>,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orders/${direction}/${orderID}/ship`, { data: shipment, params: { accessToken, impersonating } }  );
@@ -259,10 +259,10 @@ class Orders {
    /**
     * @param direction Direction of the order, from the current user's perspective. Possible values: incoming, outgoing.
     * @param orderID ID of the order.
-    * @param address 
+    * @param address Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SetShippingAddress (direction: 'Incoming' | 'Outgoing', orderID: string, address: Address,  accessToken?: string ): Promise<Order> {
+    public async SetShippingAddress (direction: 'Incoming' | 'Outgoing', orderID: string, address: Address,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/orders/${direction}/${orderID}/shipto`, { data: address, params: { accessToken, impersonating } }  );
@@ -274,7 +274,7 @@ class Orders {
     * @param address 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PatchShippingAddress (direction: 'Incoming' | 'Outgoing', orderID: string, address: Address,  accessToken?: string ): Promise<Order> {
+    public async PatchShippingAddress (direction: 'Incoming' | 'Outgoing', orderID: string, address: Partial<Address>,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/orders/${direction}/${orderID}/shipto`, { data: address, params: { accessToken, impersonating } }  );
@@ -285,7 +285,7 @@ class Orders {
     * @param orderID ID of the order.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Submit (direction: 'Incoming' | 'Outgoing', orderID: string,  accessToken?: string ): Promise<Order> {
+    public async Submit (direction: 'Incoming' | 'Outgoing', orderID: string,  accessToken?: string ): Promise<Required<Order>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/orders/${direction}/${orderID}/submit`, { params: { accessToken, impersonating } } );
@@ -293,7 +293,7 @@ class Orders {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * Orders.As().List() // lists Orders using the impersonated users' token

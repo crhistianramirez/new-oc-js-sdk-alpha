@@ -1,9 +1,9 @@
 
 export interface ProductFacet {
-    ID: string;
+    ID?: string;
     Name: string;
-    XpPath: string;
-    ListOrder: number;
+    XpPath?: string;
+    ListOrder?: number;
     MinCount: number;
-    xp: any;
+    xp?: any;
 }

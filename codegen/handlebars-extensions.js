@@ -16,12 +16,20 @@ function handlebarsExt(Handlebars) {
             return prop.enum.map(p => `'${p}'`).join(' | ');
         }
 
+        const isPrimitiveType = type => {
+         return ['string', 'number', 'boolean', 'null', 'undefined', 'any'].includes(type);
+        }
+        const jsType = javascriptTypes[prop.type] || prop.type;
+
         if( prop.isArray ) {
-            let jsType = javascriptTypes[prop.type] || prop.type; // map primitive, or return complex
-            return `${jsType}[]`;
+            return isPrimitiveType(jsType) ? `${jsType}[]`: `Partial<${jsType}>[]`
         }
 
-        return javascriptTypes[prop.type] || prop.type;
+        if(!prop.hasRequiredFields) {
+            return isPrimitiveType(jsType) ? jsType : `Partial<${jsType}>`
+        }
+
+        return jsType;
     });
 
     // converts /buyers/{buyerID} to /buyers/${buyerID}
@@ -32,6 +40,10 @@ function handlebarsExt(Handlebars) {
         }
         return path.replace(/{/g, '${');
     });
+
+    Handlebars.registerHelper('commaSeparate', fields => {
+        return fields.join(', ');
+    })
   }
   
   module.exports = handlebarsExt;

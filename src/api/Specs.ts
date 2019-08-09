@@ -18,7 +18,7 @@ class Specs {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListSpec> {
+    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListSpec>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -27,10 +27,10 @@ class Specs {
     }
 
    /**
-    * @param spec 
+    * @param spec Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (spec: Spec,  accessToken?: string ): Promise<Spec> {
+    public async Create (spec: Spec,  accessToken?: string ): Promise<Required<Spec>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/specs`, { data: spec, params: { accessToken, impersonating } }  );
@@ -40,7 +40,7 @@ class Specs {
     * @param specID ID of the spec.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (specID: string,  accessToken?: string ): Promise<Spec> {
+    public async Get (specID: string,  accessToken?: string ): Promise<Required<Spec>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/specs/${specID}`, { params: { accessToken, impersonating } } );
@@ -48,10 +48,10 @@ class Specs {
 
    /**
     * @param specID ID of the spec.
-    * @param spec 
+    * @param spec Required fields: Name
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (specID: string, spec: Spec,  accessToken?: string ): Promise<Spec> {
+    public async Save (specID: string, spec: Spec,  accessToken?: string ): Promise<Required<Spec>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/specs/${specID}`, { data: spec, params: { accessToken, impersonating } }  );
@@ -72,7 +72,7 @@ class Specs {
     * @param spec 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (specID: string, spec: Spec,  accessToken?: string ): Promise<Spec> {
+    public async Patch (specID: string, spec: Partial<Spec>,  accessToken?: string ): Promise<Required<Spec>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/specs/${specID}`, { data: spec, params: { accessToken, impersonating } }  );
@@ -88,7 +88,7 @@ class Specs {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListOptions (specID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListSpecOption> {
+    public async ListOptions (specID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListSpecOption>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -98,10 +98,10 @@ class Specs {
 
    /**
     * @param specID ID of the spec.
-    * @param specOption 
+    * @param specOption Required fields: Value
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async CreateOption (specID: string, specOption: SpecOption,  accessToken?: string ): Promise<SpecOption> {
+    public async CreateOption (specID: string, specOption: SpecOption,  accessToken?: string ): Promise<Required<SpecOption>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/specs/${specID}/options`, { data: specOption, params: { accessToken, impersonating } }  );
@@ -112,7 +112,7 @@ class Specs {
     * @param optionID ID of the option.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async GetOption (specID: string, optionID: string,  accessToken?: string ): Promise<SpecOption> {
+    public async GetOption (specID: string, optionID: string,  accessToken?: string ): Promise<Required<SpecOption>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/specs/${specID}/options/${optionID}`, { params: { accessToken, impersonating } } );
@@ -121,10 +121,10 @@ class Specs {
    /**
     * @param specID ID of the spec.
     * @param optionID ID of the option.
-    * @param specOption 
+    * @param specOption Required fields: Value
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SaveOption (specID: string, optionID: string, specOption: SpecOption,  accessToken?: string ): Promise<SpecOption> {
+    public async SaveOption (specID: string, optionID: string, specOption: SpecOption,  accessToken?: string ): Promise<Required<SpecOption>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/specs/${specID}/options/${optionID}`, { data: specOption, params: { accessToken, impersonating } }  );
@@ -147,7 +147,7 @@ class Specs {
     * @param specOption 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async PatchOption (specID: string, optionID: string, specOption: SpecOption,  accessToken?: string ): Promise<SpecOption> {
+    public async PatchOption (specID: string, optionID: string, specOption: Partial<SpecOption>,  accessToken?: string ): Promise<Required<SpecOption>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/specs/${specID}/options/${optionID}`, { data: specOption, params: { accessToken, impersonating } }  );
@@ -173,7 +173,7 @@ class Specs {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListProductAssignments ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListSpecProductAssignment> {
+    public async ListProductAssignments ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListSpecProductAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -185,7 +185,7 @@ class Specs {
     * @param specProductAssignment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SaveProductAssignment (specProductAssignment: SpecProductAssignment,  accessToken?: string ): Promise<void> {
+    public async SaveProductAssignment (specProductAssignment: Partial<SpecProductAssignment>,  accessToken?: string ): Promise<void> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/specs/productassignments`, { data: specProductAssignment, params: { accessToken, impersonating } }  );
@@ -193,7 +193,7 @@ class Specs {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * Specs.As().List() // lists Specs using the impersonated users' token

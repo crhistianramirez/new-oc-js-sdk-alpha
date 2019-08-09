@@ -82,7 +82,7 @@
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
 									<dt>description</dt>
-									<dd><p>enables impersonation by calling the following method with the stores impersonation token</p>
+									<dd><p>enables impersonation by calling the subsequent method with the stored impersonation token</p>
 									</dd>
 									<dt>example</dt>
 									<dd><p>MessageSenders.As().List() // lists MessageSenders using the impersonated users&#39; token</p>
@@ -97,7 +97,7 @@
 					<a name="create" class="tsd-anchor"></a>
 					<h3>Create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Create<span class="tsd-signature-symbol">(</span>messageSender<span class="tsd-signature-symbol">: </span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Create<span class="tsd-signature-symbol">(</span>messageSender<span class="tsd-signature-symbol">: </span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -109,6 +109,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>messageSender: <a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required fields: Name, MessageTypes, URL, SharedKey</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -117,7 +120,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -216,7 +219,7 @@
 					<a name="get" class="tsd-anchor"></a>
 					<h3>Get</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>messageSenderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>messageSenderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -239,7 +242,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -247,7 +250,7 @@
 					<a name="list" class="tsd-anchor"></a>
 					<h3>List</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listmessagesender.html" class="tsd-signature-type">ListMessageSender</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">List<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listmessagesender.html" class="tsd-signature-type">ListMessageSender</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -305,7 +308,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listmessagesender.html" class="tsd-signature-type">ListMessageSender</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listmessagesender.html" class="tsd-signature-type">ListMessageSender</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -313,7 +316,7 @@
 					<a name="listassignments" class="tsd-anchor"></a>
 					<h3>List<wbr>Assignments</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<wbr>Assignments<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listmessagesenderassignment.html" class="tsd-signature-type">ListMessageSenderAssignment</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Assignments<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listmessagesenderassignment.html" class="tsd-signature-type">ListMessageSenderAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -383,7 +386,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listmessagesenderassignment.html" class="tsd-signature-type">ListMessageSenderAssignment</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listmessagesenderassignment.html" class="tsd-signature-type">ListMessageSenderAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -391,7 +394,7 @@
 					<a name="listcclistenerassignments" class="tsd-anchor"></a>
 					<h3>ListCCListener<wbr>Assignments</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">ListCCListener<wbr>Assignments<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listmessagecclistenerassignment.html" class="tsd-signature-type">ListMessageCCListenerAssignment</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">ListCCListener<wbr>Assignments<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listmessagecclistenerassignment.html" class="tsd-signature-type">ListMessageCCListenerAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -449,7 +452,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listmessagecclistenerassignment.html" class="tsd-signature-type">ListMessageCCListenerAssignment</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listmessagecclistenerassignment.html" class="tsd-signature-type">ListMessageCCListenerAssignment</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -457,7 +460,7 @@
 					<a name="patch" class="tsd-anchor"></a>
 					<h3>Patch</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Patch<span class="tsd-signature-symbol">(</span>messageSenderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, messageSender<span class="tsd-signature-symbol">: </span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Patch<span class="tsd-signature-symbol">(</span>messageSenderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, messageSender<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -474,7 +477,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>messageSender: <a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a></h5>
+									<h5>messageSender: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -483,7 +486,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -491,7 +494,7 @@
 					<a name="save" class="tsd-anchor"></a>
 					<h3>Save</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Save<span class="tsd-signature-symbol">(</span>messageSenderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, messageSender<span class="tsd-signature-symbol">: </span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Save<span class="tsd-signature-symbol">(</span>messageSenderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, messageSender<span class="tsd-signature-symbol">: </span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -509,6 +512,9 @@
 								</li>
 								<li>
 									<h5>messageSender: <a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required fields: Name, MessageTypes, URL, SharedKey</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -517,7 +523,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagesender.html" class="tsd-signature-type">MessageSender</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -537,6 +543,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>messageSenderAssignment: <a href="../interfaces/messagesenderassignment.html" class="tsd-signature-type">MessageSenderAssignment</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required fields: MessageSenderID</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -553,7 +562,7 @@
 					<a name="savecclistenerassignment" class="tsd-anchor"></a>
 					<h3>SaveCCListener<wbr>Assignment</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">SaveCCListener<wbr>Assignment<span class="tsd-signature-symbol">(</span>messageCCListenerAssignment<span class="tsd-signature-symbol">: </span><a href="../interfaces/messagecclistenerassignment.html" class="tsd-signature-type">MessageCCListenerAssignment</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">SaveCCListener<wbr>Assignment<span class="tsd-signature-symbol">(</span>messageCCListenerAssignment<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagecclistenerassignment.html" class="tsd-signature-type">MessageCCListenerAssignment</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -564,7 +573,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>messageCCListenerAssignment: <a href="../interfaces/messagecclistenerassignment.html" class="tsd-signature-type">MessageCCListenerAssignment</a></h5>
+									<h5>messageCCListenerAssignment: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/messagecclistenerassignment.html" class="tsd-signature-type">MessageCCListenerAssignment</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>

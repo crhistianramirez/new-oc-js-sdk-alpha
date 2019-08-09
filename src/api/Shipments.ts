@@ -17,7 +17,7 @@ class Shipments {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { orderID?: string, search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListShipment> {
+    public async List ( options: { orderID?: string, search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListShipment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -29,7 +29,7 @@ class Shipments {
     * @param shipment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (shipment: Shipment,  accessToken?: string ): Promise<Shipment> {
+    public async Create (shipment: Partial<Shipment>,  accessToken?: string ): Promise<Required<Shipment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/shipments`, { data: shipment, params: { accessToken, impersonating } }  );
@@ -39,7 +39,7 @@ class Shipments {
     * @param shipmentID ID of the shipment.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (shipmentID: string,  accessToken?: string ): Promise<Shipment> {
+    public async Get (shipmentID: string,  accessToken?: string ): Promise<Required<Shipment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/shipments/${shipmentID}`, { params: { accessToken, impersonating } } );
@@ -50,7 +50,7 @@ class Shipments {
     * @param shipment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (shipmentID: string, shipment: Shipment,  accessToken?: string ): Promise<Shipment> {
+    public async Save (shipmentID: string, shipment: Partial<Shipment>,  accessToken?: string ): Promise<Required<Shipment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/shipments/${shipmentID}`, { data: shipment, params: { accessToken, impersonating } }  );
@@ -71,7 +71,7 @@ class Shipments {
     * @param shipment 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (shipmentID: string, shipment: Shipment,  accessToken?: string ): Promise<Shipment> {
+    public async Patch (shipmentID: string, shipment: Partial<Shipment>,  accessToken?: string ): Promise<Required<Shipment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/shipments/${shipmentID}`, { data: shipment, params: { accessToken, impersonating } }  );
@@ -87,7 +87,7 @@ class Shipments {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListItems (shipmentID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListShipmentItem> {
+    public async ListItems (shipmentID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListShipmentItem>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -97,10 +97,10 @@ class Shipments {
 
    /**
     * @param shipmentID ID of the shipment.
-    * @param shipmentItem 
+    * @param shipmentItem Required fields: OrderID, LineItemID, QuantityShipped
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async SaveItem (shipmentID: string, shipmentItem: ShipmentItem,  accessToken?: string ): Promise<ShipmentItem> {
+    public async SaveItem (shipmentID: string, shipmentItem: ShipmentItem,  accessToken?: string ): Promise<Required<ShipmentItem>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/shipments/${shipmentID}/items`, { data: shipmentItem, params: { accessToken, impersonating } }  );
@@ -112,7 +112,7 @@ class Shipments {
     * @param lineItemID ID of the line item.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async GetItem (shipmentID: string, orderID: string, lineItemID: string,  accessToken?: string ): Promise<ShipmentItem> {
+    public async GetItem (shipmentID: string, orderID: string, lineItemID: string,  accessToken?: string ): Promise<Required<ShipmentItem>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/shipments/${shipmentID}/items/${orderID}/${lineItemID}`, { params: { accessToken, impersonating } } );
@@ -132,7 +132,7 @@ class Shipments {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * Shipments.As().List() // lists Shipments using the impersonated users' token

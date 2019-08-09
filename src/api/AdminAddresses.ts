@@ -14,7 +14,7 @@ class AdminAddresses {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListAddress> {
+    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListAddress>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -23,10 +23,10 @@ class AdminAddresses {
     }
 
    /**
-    * @param address 
+    * @param address Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (address: Address,  accessToken?: string ): Promise<Address> {
+    public async Create (address: Address,  accessToken?: string ): Promise<Required<Address>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/addresses`, { data: address, params: { accessToken, impersonating } }  );
@@ -36,7 +36,7 @@ class AdminAddresses {
     * @param addressID ID of the address.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (addressID: string,  accessToken?: string ): Promise<Address> {
+    public async Get (addressID: string,  accessToken?: string ): Promise<Required<Address>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/addresses/${addressID}`, { params: { accessToken, impersonating } } );
@@ -44,10 +44,10 @@ class AdminAddresses {
 
    /**
     * @param addressID ID of the address.
-    * @param address 
+    * @param address Required fields: Street1, City, State, Zip, Country
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (addressID: string, address: Address,  accessToken?: string ): Promise<Address> {
+    public async Save (addressID: string, address: Address,  accessToken?: string ): Promise<Required<Address>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/addresses/${addressID}`, { data: address, params: { accessToken, impersonating } }  );
@@ -68,7 +68,7 @@ class AdminAddresses {
     * @param address 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (addressID: string, address: Address,  accessToken?: string ): Promise<Address> {
+    public async Patch (addressID: string, address: Partial<Address>,  accessToken?: string ): Promise<Required<Address>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/addresses/${addressID}`, { data: address, params: { accessToken, impersonating } }  );
@@ -76,7 +76,7 @@ class AdminAddresses {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * AdminAddresses.As().List() // lists AdminAddresses using the impersonated users' token

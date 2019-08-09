@@ -1,8 +1,8 @@
 
 export interface Buyer {
-    ID: string;
+    ID?: string;
     Name: string;
-    DefaultCatalogID: string;
-    Active: boolean;
-    xp: any;
+    DefaultCatalogID?: string;
+    Active?: boolean;
+    xp?: any;
 }

@@ -14,7 +14,7 @@ class Webhooks {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListWebhook> {
+    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListWebhook>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -23,10 +23,10 @@ class Webhooks {
     }
 
    /**
-    * @param webhook 
+    * @param webhook Required fields: Name, Url, HashKey
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (webhook: Webhook,  accessToken?: string ): Promise<Webhook> {
+    public async Create (webhook: Webhook,  accessToken?: string ): Promise<Required<Webhook>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/webhooks`, { data: webhook, params: { accessToken, impersonating } }  );
@@ -36,7 +36,7 @@ class Webhooks {
     * @param webhookID ID of the webhook.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (webhookID: string,  accessToken?: string ): Promise<Webhook> {
+    public async Get (webhookID: string,  accessToken?: string ): Promise<Required<Webhook>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/webhooks/${webhookID}`, { params: { accessToken, impersonating } } );
@@ -44,10 +44,10 @@ class Webhooks {
 
    /**
     * @param webhookID ID of the webhook.
-    * @param webhook 
+    * @param webhook Required fields: Name, Url, HashKey
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (webhookID: string, webhook: Webhook,  accessToken?: string ): Promise<Webhook> {
+    public async Save (webhookID: string, webhook: Webhook,  accessToken?: string ): Promise<Required<Webhook>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/webhooks/${webhookID}`, { data: webhook, params: { accessToken, impersonating } }  );
@@ -68,7 +68,7 @@ class Webhooks {
     * @param webhook 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (webhookID: string, webhook: Webhook,  accessToken?: string ): Promise<Webhook> {
+    public async Patch (webhookID: string, webhook: Partial<Webhook>,  accessToken?: string ): Promise<Required<Webhook>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/webhooks/${webhookID}`, { data: webhook, params: { accessToken, impersonating } }  );
@@ -76,7 +76,7 @@ class Webhooks {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * Webhooks.As().List() // lists Webhooks using the impersonated users' token

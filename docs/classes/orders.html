@@ -83,7 +83,7 @@
 					<a name="addpromotion" class="tsd-anchor"></a>
 					<h3>Add<wbr>Promotion</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Add<wbr>Promotion<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, promoCode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/orderpromotion.html" class="tsd-signature-type">OrderPromotion</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Add<wbr>Promotion<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, promoCode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/orderpromotion.html" class="tsd-signature-type">OrderPromotion</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -118,7 +118,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/orderpromotion.html" class="tsd-signature-type">OrderPromotion</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/orderpromotion.html" class="tsd-signature-type">OrderPromotion</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -126,7 +126,7 @@
 					<a name="approve" class="tsd-anchor"></a>
 					<h3>Approve</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Approve<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, orderApprovalInfo<span class="tsd-signature-symbol">: </span><a href="../interfaces/orderapprovalinfo.html" class="tsd-signature-type">OrderApprovalInfo</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Approve<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, orderApprovalInfo<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/orderapprovalinfo.html" class="tsd-signature-type">OrderApprovalInfo</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -149,7 +149,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>orderApprovalInfo: <a href="../interfaces/orderapprovalinfo.html" class="tsd-signature-type">OrderApprovalInfo</a></h5>
+									<h5>orderApprovalInfo: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/orderapprovalinfo.html" class="tsd-signature-type">OrderApprovalInfo</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -158,7 +158,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -175,7 +175,7 @@
 							<div class="tsd-comment tsd-typography">
 								<dl class="tsd-comment-tags">
 									<dt>description</dt>
-									<dd><p>enables impersonation by calling the following method with the stores impersonation token</p>
+									<dd><p>enables impersonation by calling the subsequent method with the stored impersonation token</p>
 									</dd>
 									<dt>example</dt>
 									<dd><p>Orders.As().List() // lists Orders using the impersonated users&#39; token</p>
@@ -190,7 +190,7 @@
 					<a name="cancel" class="tsd-anchor"></a>
 					<h3>Cancel</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Cancel<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Cancel<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -219,7 +219,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -227,7 +227,7 @@
 					<a name="create" class="tsd-anchor"></a>
 					<h3>Create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Create<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, order<span class="tsd-signature-symbol">: </span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Create<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, order<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -244,7 +244,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>order: <a href="../interfaces/order.html" class="tsd-signature-type">Order</a></h5>
+									<h5>order: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -253,7 +253,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -261,7 +261,7 @@
 					<a name="decline" class="tsd-anchor"></a>
 					<h3>Decline</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Decline<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, orderApprovalInfo<span class="tsd-signature-symbol">: </span><a href="../interfaces/orderapprovalinfo.html" class="tsd-signature-type">OrderApprovalInfo</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Decline<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, orderApprovalInfo<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/orderapprovalinfo.html" class="tsd-signature-type">OrderApprovalInfo</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -284,7 +284,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>orderApprovalInfo: <a href="../interfaces/orderapprovalinfo.html" class="tsd-signature-type">OrderApprovalInfo</a></h5>
+									<h5>orderApprovalInfo: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/orderapprovalinfo.html" class="tsd-signature-type">OrderApprovalInfo</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -293,7 +293,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -338,7 +338,7 @@
 					<a name="get" class="tsd-anchor"></a>
 					<h3>Get</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Get<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -367,7 +367,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -375,7 +375,7 @@
 					<a name="list" class="tsd-anchor"></a>
 					<h3>List</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listorder.html" class="tsd-signature-type">ListOrder</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">List<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listorder.html" class="tsd-signature-type">ListOrder</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -463,7 +463,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listorder.html" class="tsd-signature-type">ListOrder</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listorder.html" class="tsd-signature-type">ListOrder</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -471,7 +471,7 @@
 					<a name="listapprovals" class="tsd-anchor"></a>
 					<h3>List<wbr>Approvals</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<wbr>Approvals<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listorderapproval.html" class="tsd-signature-type">ListOrderApproval</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Approvals<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listorderapproval.html" class="tsd-signature-type">ListOrderApproval</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -541,7 +541,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listorderapproval.html" class="tsd-signature-type">ListOrderApproval</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listorderapproval.html" class="tsd-signature-type">ListOrderApproval</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -549,7 +549,7 @@
 					<a name="listeligibleapprovers" class="tsd-anchor"></a>
 					<h3>List<wbr>Eligible<wbr>Approvers</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<wbr>Eligible<wbr>Approvers<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listuser.html" class="tsd-signature-type">ListUser</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Eligible<wbr>Approvers<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listuser.html" class="tsd-signature-type">ListUser</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -619,7 +619,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listuser.html" class="tsd-signature-type">ListUser</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listuser.html" class="tsd-signature-type">ListUser</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -627,7 +627,7 @@
 					<a name="listpromotions" class="tsd-anchor"></a>
 					<h3>List<wbr>Promotions</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">List<wbr>Promotions<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listorderpromotion.html" class="tsd-signature-type">ListOrderPromotion</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">List<wbr>Promotions<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listorderpromotion.html" class="tsd-signature-type">ListOrderPromotion</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -697,7 +697,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listorderpromotion.html" class="tsd-signature-type">ListOrderPromotion</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/listorderpromotion.html" class="tsd-signature-type">ListOrderPromotion</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -705,7 +705,7 @@
 					<a name="patch" class="tsd-anchor"></a>
 					<h3>Patch</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Patch<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, order<span class="tsd-signature-symbol">: </span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Patch<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, order<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -728,7 +728,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>order: <a href="../interfaces/order.html" class="tsd-signature-type">Order</a></h5>
+									<h5>order: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -737,7 +737,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -745,7 +745,7 @@
 					<a name="patchbillingaddress" class="tsd-anchor"></a>
 					<h3>Patch<wbr>Billing<wbr>Address</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Patch<wbr>Billing<wbr>Address<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, address<span class="tsd-signature-symbol">: </span><a href="../interfaces/address.html" class="tsd-signature-type">Address</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Patch<wbr>Billing<wbr>Address<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/address.html" class="tsd-signature-type">Address</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -768,7 +768,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>address: <a href="../interfaces/address.html" class="tsd-signature-type">Address</a></h5>
+									<h5>address: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/address.html" class="tsd-signature-type">Address</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -777,7 +777,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -785,7 +785,7 @@
 					<a name="patchfromuser" class="tsd-anchor"></a>
 					<h3>Patch<wbr>From<wbr>User</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Patch<wbr>From<wbr>User<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, user<span class="tsd-signature-symbol">: </span><a href="../interfaces/user.html" class="tsd-signature-type">User</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Patch<wbr>From<wbr>User<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, user<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -808,7 +808,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>user: <a href="../interfaces/user.html" class="tsd-signature-type">User</a></h5>
+									<h5>user: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/user.html" class="tsd-signature-type">User</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -817,7 +817,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -825,7 +825,7 @@
 					<a name="patchshippingaddress" class="tsd-anchor"></a>
 					<h3>Patch<wbr>Shipping<wbr>Address</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Patch<wbr>Shipping<wbr>Address<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, address<span class="tsd-signature-symbol">: </span><a href="../interfaces/address.html" class="tsd-signature-type">Address</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Patch<wbr>Shipping<wbr>Address<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/address.html" class="tsd-signature-type">Address</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -848,7 +848,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>address: <a href="../interfaces/address.html" class="tsd-signature-type">Address</a></h5>
+									<h5>address: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/address.html" class="tsd-signature-type">Address</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -857,7 +857,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -865,7 +865,7 @@
 					<a name="removepromotion" class="tsd-anchor"></a>
 					<h3>Remove<wbr>Promotion</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Remove<wbr>Promotion<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, promoCode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Remove<wbr>Promotion<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, promoCode<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -900,7 +900,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -908,7 +908,7 @@
 					<a name="save" class="tsd-anchor"></a>
 					<h3>Save</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Save<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, order<span class="tsd-signature-symbol">: </span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Save<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, order<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -931,7 +931,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>order: <a href="../interfaces/order.html" class="tsd-signature-type">Order</a></h5>
+									<h5>order: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -940,7 +940,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -948,7 +948,7 @@
 					<a name="setbillingaddress" class="tsd-anchor"></a>
 					<h3>Set<wbr>Billing<wbr>Address</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Set<wbr>Billing<wbr>Address<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, address<span class="tsd-signature-symbol">: </span><a href="../interfaces/address.html" class="tsd-signature-type">Address</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Set<wbr>Billing<wbr>Address<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, address<span class="tsd-signature-symbol">: </span><a href="../interfaces/address.html" class="tsd-signature-type">Address</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -972,6 +972,9 @@
 								</li>
 								<li>
 									<h5>address: <a href="../interfaces/address.html" class="tsd-signature-type">Address</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required fields: Street1, City, State, Zip, Country</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -980,7 +983,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -988,7 +991,7 @@
 					<a name="setshippingaddress" class="tsd-anchor"></a>
 					<h3>Set<wbr>Shipping<wbr>Address</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Set<wbr>Shipping<wbr>Address<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, address<span class="tsd-signature-symbol">: </span><a href="../interfaces/address.html" class="tsd-signature-type">Address</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Set<wbr>Shipping<wbr>Address<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, address<span class="tsd-signature-symbol">: </span><a href="../interfaces/address.html" class="tsd-signature-type">Address</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1012,6 +1015,9 @@
 								</li>
 								<li>
 									<h5>address: <a href="../interfaces/address.html" class="tsd-signature-type">Address</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Required fields: Street1, City, State, Zip, Country</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -1020,7 +1026,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1028,7 +1034,7 @@
 					<a name="ship" class="tsd-anchor"></a>
 					<h3>Ship</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Ship<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, shipment<span class="tsd-signature-symbol">: </span><a href="../interfaces/shipment.html" class="tsd-signature-type">Shipment</a>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Ship<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, shipment<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/shipment.html" class="tsd-signature-type">Shipment</a><span class="tsd-signature-symbol">&gt;</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1051,7 +1057,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>shipment: <a href="../interfaces/shipment.html" class="tsd-signature-type">Shipment</a></h5>
+									<h5>shipment: <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/shipment.html" class="tsd-signature-type">Shipment</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> accessToken: <span class="tsd-signature-type">string</span></h5>
@@ -1060,7 +1066,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1068,7 +1074,7 @@
 					<a name="submit" class="tsd-anchor"></a>
 					<h3>Submit</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">Submit<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">Submit<span class="tsd-signature-symbol">(</span>direction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"Incoming"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Outgoing"</span>, orderID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, accessToken<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1097,7 +1103,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/buyerspec.html#required" class="tsd-signature-type">Required</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>

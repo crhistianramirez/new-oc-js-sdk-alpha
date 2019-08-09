@@ -17,7 +17,7 @@ class CreditCards {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List (buyerID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListCreditCard> {
+    public async List (buyerID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListCreditCard>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -30,7 +30,7 @@ class CreditCards {
     * @param creditCard 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (buyerID: string, creditCard: CreditCard,  accessToken?: string ): Promise<CreditCard> {
+    public async Create (buyerID: string, creditCard: Partial<CreditCard>,  accessToken?: string ): Promise<Required<CreditCard>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/buyers/${buyerID}/creditcards`, { data: creditCard, params: { accessToken, impersonating } }  );
@@ -41,7 +41,7 @@ class CreditCards {
     * @param creditCardID ID of the credit card.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (buyerID: string, creditCardID: string,  accessToken?: string ): Promise<CreditCard> {
+    public async Get (buyerID: string, creditCardID: string,  accessToken?: string ): Promise<Required<CreditCard>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyers/${buyerID}/creditcards/${creditCardID}`, { params: { accessToken, impersonating } } );
@@ -53,7 +53,7 @@ class CreditCards {
     * @param creditCard 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (buyerID: string, creditCardID: string, creditCard: CreditCard,  accessToken?: string ): Promise<CreditCard> {
+    public async Save (buyerID: string, creditCardID: string, creditCard: Partial<CreditCard>,  accessToken?: string ): Promise<Required<CreditCard>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/buyers/${buyerID}/creditcards/${creditCardID}`, { data: creditCard, params: { accessToken, impersonating } }  );
@@ -76,7 +76,7 @@ class CreditCards {
     * @param creditCard 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (buyerID: string, creditCardID: string, creditCard: CreditCard,  accessToken?: string ): Promise<CreditCard> {
+    public async Patch (buyerID: string, creditCardID: string, creditCard: Partial<CreditCard>,  accessToken?: string ): Promise<Required<CreditCard>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/buyers/${buyerID}/creditcards/${creditCardID}`, { data: creditCard, params: { accessToken, impersonating } }  );
@@ -105,7 +105,7 @@ class CreditCards {
     * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListAssignments (buyerID: string,  options: { creditCardID?: string, userID?: string, userGroupID?: string, level?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<ListCreditCardAssignment> {
+    public async ListAssignments (buyerID: string,  options: { creditCardID?: string, userID?: string, userGroupID?: string, level?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<Required<ListCreditCardAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyers/${buyerID}/creditcards/assignments`, { params: { ...options, accessToken, impersonating } } );
@@ -113,7 +113,7 @@ class CreditCards {
 
    /**
     * @param buyerID ID of the buyer.
-    * @param creditCardAssignment 
+    * @param creditCardAssignment Required fields: CreditCardID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SaveAssignment (buyerID: string, creditCardAssignment: CreditCardAssignment,  accessToken?: string ): Promise<void> {
@@ -124,7 +124,7 @@ class CreditCards {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * CreditCards.As().List() // lists CreditCards using the impersonated users' token

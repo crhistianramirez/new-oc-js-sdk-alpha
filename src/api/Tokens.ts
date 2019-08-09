@@ -19,17 +19,17 @@ class Tokens {
    * Manage Access Tokens
    */
 
-  public getAccess(): string {
+  public GetAccessToken(): string {
     return isNode ? this.accessToken : cookies.get(this.accessTokenCookieName)
   }
 
-  public setAccess(token: string): void {
+  public SetAccessToken(token: string): void {
     isNode
       ? (this.accessToken = token)
       : cookies.set(this.accessTokenCookieName, token)
   }
 
-  public removeAccess(): void {
+  public RemoveAccessToken(): void {
     isNode
       ? (this.accessToken = '')
       : cookies.remove(this.accessTokenCookieName)
@@ -39,19 +39,19 @@ class Tokens {
    * Manage Impersonation Tokens
    */
 
-  public getImpersonation(): string {
+  public GetImpersonationToken(): string {
     return isNode
       ? this.impersonationToken
       : cookies.get(this.impersonationTokenCookieName)
   }
 
-  public setImpersonation(token: string): void {
+  public SetImpersonationToken(token: string): void {
     isNode
       ? (this.impersonationToken = token)
       : cookies.set(this.impersonationTokenCookieName, token)
   }
 
-  public removeImpersonation(): void {
+  public RemoveImpersonationToken(): void {
     isNode
       ? (this.impersonationToken = null)
       : cookies.remove(this.impersonationTokenCookieName)
@@ -61,17 +61,17 @@ class Tokens {
    * Manage Refresh Tokens
    */
 
-  public getRefresh(): string {
+  public GetRefreshToken(): string {
     return isNode ? this.refreshToken : cookies.get(this.refreshTokenCookieName)
   }
 
-  public setRefresh(token: string): void {
+  public SetRefreshToken(token: string): void {
     isNode
       ? (this.refreshToken = token)
       : cookies.set(this.refreshTokenCookieName, token)
   }
 
-  public removeRefresh(): void {
+  public RemoveRefreshToken(): void {
     isNode
       ? (this.refreshToken = null)
       : cookies.remove(this.refreshTokenCookieName)

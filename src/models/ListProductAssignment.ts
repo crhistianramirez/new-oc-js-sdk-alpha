@@ -2,6 +2,6 @@ import { ProductAssignment } from './ProductAssignment';
 import { Meta } from './Meta';
 
 export interface ListProductAssignment {
-    Items: ProductAssignment[];
-    Meta: Meta;
+    Items?: Partial<ProductAssignment>[];
+    Meta?: Partial<Meta>;
 }

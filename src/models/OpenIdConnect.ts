@@ -1,6 +1,6 @@
 
 export interface OpenIdConnect {
-    ID: string;
+    ID?: string;
     OrderCloudApiClientID: string;
     ConnectClientID: string;
     ConnectClientSecret: string;

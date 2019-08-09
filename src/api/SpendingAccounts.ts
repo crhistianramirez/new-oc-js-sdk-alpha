@@ -17,7 +17,7 @@ class SpendingAccounts {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List (buyerID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListSpendingAccount> {
+    public async List (buyerID: string,  options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListSpendingAccount>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -27,10 +27,10 @@ class SpendingAccounts {
 
    /**
     * @param buyerID ID of the buyer.
-    * @param spendingAccount 
+    * @param spendingAccount Required fields: Name, Balance
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (buyerID: string, spendingAccount: SpendingAccount,  accessToken?: string ): Promise<SpendingAccount> {
+    public async Create (buyerID: string, spendingAccount: SpendingAccount,  accessToken?: string ): Promise<Required<SpendingAccount>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/buyers/${buyerID}/spendingaccounts`, { data: spendingAccount, params: { accessToken, impersonating } }  );
@@ -41,7 +41,7 @@ class SpendingAccounts {
     * @param spendingAccountID ID of the spending account.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (buyerID: string, spendingAccountID: string,  accessToken?: string ): Promise<SpendingAccount> {
+    public async Get (buyerID: string, spendingAccountID: string,  accessToken?: string ): Promise<Required<SpendingAccount>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyers/${buyerID}/spendingaccounts/${spendingAccountID}`, { params: { accessToken, impersonating } } );
@@ -50,10 +50,10 @@ class SpendingAccounts {
    /**
     * @param buyerID ID of the buyer.
     * @param spendingAccountID ID of the spending account.
-    * @param spendingAccount 
+    * @param spendingAccount Required fields: Name, Balance
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (buyerID: string, spendingAccountID: string, spendingAccount: SpendingAccount,  accessToken?: string ): Promise<SpendingAccount> {
+    public async Save (buyerID: string, spendingAccountID: string, spendingAccount: SpendingAccount,  accessToken?: string ): Promise<Required<SpendingAccount>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/buyers/${buyerID}/spendingaccounts/${spendingAccountID}`, { data: spendingAccount, params: { accessToken, impersonating } }  );
@@ -76,7 +76,7 @@ class SpendingAccounts {
     * @param spendingAccount 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (buyerID: string, spendingAccountID: string, spendingAccount: SpendingAccount,  accessToken?: string ): Promise<SpendingAccount> {
+    public async Patch (buyerID: string, spendingAccountID: string, spendingAccount: Partial<SpendingAccount>,  accessToken?: string ): Promise<Required<SpendingAccount>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/buyers/${buyerID}/spendingaccounts/${spendingAccountID}`, { data: spendingAccount, params: { accessToken, impersonating } }  );
@@ -105,7 +105,7 @@ class SpendingAccounts {
     * @param options.pageSize Number of results to return per page. Default: 20, max: 100.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async ListAssignments (buyerID: string,  options: { spendingAccountID?: string, userID?: string, userGroupID?: string, level?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<ListSpendingAccountAssignment> {
+    public async ListAssignments (buyerID: string,  options: { spendingAccountID?: string, userID?: string, userGroupID?: string, level?: string, page?: number, pageSize?: number } , accessToken?: string ): Promise<Required<ListSpendingAccountAssignment>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/buyers/${buyerID}/spendingaccounts/assignments`, { params: { ...options, accessToken, impersonating } } );
@@ -113,7 +113,7 @@ class SpendingAccounts {
 
    /**
     * @param buyerID ID of the buyer.
-    * @param spendingAccountAssignment 
+    * @param spendingAccountAssignment Required fields: SpendingAccountID
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
     public async SaveAssignment (buyerID: string, spendingAccountAssignment: SpendingAccountAssignment,  accessToken?: string ): Promise<void> {
@@ -124,7 +124,7 @@ class SpendingAccounts {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * SpendingAccounts.As().List() // lists SpendingAccounts using the impersonated users' token

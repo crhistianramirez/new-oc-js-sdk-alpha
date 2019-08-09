@@ -14,7 +14,7 @@ class Incrementors {
     * @param options.filters Any additional key/value pairs passed in the query string are interpretted as filters. Valid keys are top-level properties of the returned model or 'xp.???'
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<ListIncrementor> {
+    public async List ( options: { search?: string, searchOn?: string[], sortBy?: string[], page?: number, pageSize?: number, filters?: any } = { filters: {}}, accessToken?: string ): Promise<Required<ListIncrementor>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         const filters = options.filters;
@@ -23,10 +23,10 @@ class Incrementors {
     }
 
    /**
-    * @param incrementor 
+    * @param incrementor Required fields: LastNumber, LeftPaddingCount
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Create (incrementor: Incrementor,  accessToken?: string ): Promise<Incrementor> {
+    public async Create (incrementor: Incrementor,  accessToken?: string ): Promise<Required<Incrementor>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.post(`/incrementors`, { data: incrementor, params: { accessToken, impersonating } }  );
@@ -36,7 +36,7 @@ class Incrementors {
     * @param incrementorID ID of the incrementor.
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Get (incrementorID: string,  accessToken?: string ): Promise<Incrementor> {
+    public async Get (incrementorID: string,  accessToken?: string ): Promise<Required<Incrementor>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.get(`/incrementors/${incrementorID}`, { params: { accessToken, impersonating } } );
@@ -44,10 +44,10 @@ class Incrementors {
 
    /**
     * @param incrementorID ID of the incrementor.
-    * @param incrementor 
+    * @param incrementor Required fields: LastNumber, LeftPaddingCount
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Save (incrementorID: string, incrementor: Incrementor,  accessToken?: string ): Promise<Incrementor> {
+    public async Save (incrementorID: string, incrementor: Incrementor,  accessToken?: string ): Promise<Required<Incrementor>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.put(`/incrementors/${incrementorID}`, { data: incrementor, params: { accessToken, impersonating } }  );
@@ -68,7 +68,7 @@ class Incrementors {
     * @param incrementor 
     * @param accessToken Provide an alternative token to the one stored in the sdk instance (useful for impersonation).
     */
-    public async Patch (incrementorID: string, incrementor: Incrementor,  accessToken?: string ): Promise<Incrementor> {
+    public async Patch (incrementorID: string, incrementor: Partial<Incrementor>,  accessToken?: string ): Promise<Required<Incrementor>> {
         const impersonating = this.impersonating;
         this.impersonating = false;
         return await httpClient.patch(`/incrementors/${incrementorID}`, { data: incrementor, params: { accessToken, impersonating } }  );
@@ -76,7 +76,7 @@ class Incrementors {
 
     /**
      * @description 
-     * enables impersonation by calling the following method with the stores impersonation token
+     * enables impersonation by calling the subsequent method with the stored impersonation token
      * 
      * @example
      * Incrementors.As().List() // lists Incrementors using the impersonated users' token

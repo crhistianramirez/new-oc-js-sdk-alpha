@@ -1,5 +1,5 @@
 
 export interface MeBuyer {
-    ID: string;
-    DefaultCatalogID: string;
+    ID?: string;
+    DefaultCatalogID?: string;
 }

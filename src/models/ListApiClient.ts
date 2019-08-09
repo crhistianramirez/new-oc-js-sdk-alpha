@@ -2,6 +2,6 @@ import { ApiClient } from './ApiClient';
 import { Meta } from './Meta';
 
 export interface ListApiClient {
-    Items: ApiClient[];
-    Meta: Meta;
+    Items?: Partial<ApiClient>[];
+    Meta?: Partial<Meta>;
 }

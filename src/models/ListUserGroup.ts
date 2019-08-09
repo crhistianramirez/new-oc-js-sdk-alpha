@@ -2,6 +2,6 @@ import { UserGroup } from './UserGroup';
 import { Meta } from './Meta';
 
 export interface ListUserGroup {
-    Items: UserGroup[];
-    Meta: Meta;
+    Items?: Partial<UserGroup>[];
+    Meta?: Partial<Meta>;
 }

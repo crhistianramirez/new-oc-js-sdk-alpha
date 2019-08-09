@@ -1,7 +1,7 @@
 
 export interface Incrementor {
-    ID: string;
-    Name: string;
+    ID?: string;
+    Name?: string;
     LastNumber: number;
     LeftPaddingCount: number;
 }
