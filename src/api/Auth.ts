@@ -2,6 +2,7 @@ import axios, { AxiosInstance } from 'axios'
 import { AccessToken } from '../models/AccessToken'
 import Configuration from '../configuration'
 import { SecurityProfile } from '../models/SecurityProfile'
+import serialize from '../utils/paramsSerializer'
 
 class Auth {
   private _http: AxiosInstance
@@ -36,7 +37,7 @@ class Auth {
     const configuration = Configuration.Get()
     const response = await this._http.post(
       configuration.baseAuthUrl,
-      this.asQueryString(body),
+      serialize(body),
       {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -76,7 +77,7 @@ class Auth {
     const configuration = Configuration.Get()
     const response = await this._http.post(
       configuration.baseAuthUrl,
-      this.asQueryString(body),
+      serialize(body),
       {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -110,7 +111,7 @@ class Auth {
     const configuration = Configuration.Get()
     const response = await this._http.post(
       configuration.baseAuthUrl,
-      this.asQueryString(body),
+      serialize(body),
       {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -141,7 +142,7 @@ class Auth {
     const configuration = Configuration.Get()
     const response = await this._http.post(
       configuration.baseAuthUrl,
-      this.asQueryString(body),
+      serialize(body),
       {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -172,7 +173,7 @@ class Auth {
     const configuration = Configuration.Get()
     const response = await this._http.post(
       configuration.baseAuthUrl,
-      this.asQueryString(body),
+      serialize(body),
       {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -181,14 +182,6 @@ class Auth {
       }
     )
     return response.data
-  }
-
-  private asQueryString(body: { [key: string]: string }): string {
-    const keys = Object.keys(body)
-    let queryStringArray = keys.map(
-      key => `${key}=${encodeURIComponent(body[key])}`
-    )
-    return queryStringArray.join('&')
   }
 }
 

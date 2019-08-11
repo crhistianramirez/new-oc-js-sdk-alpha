@@ -3,6 +3,7 @@ import tokenService from '../api/Tokens'
 import Configuration from '../configuration'
 import { DecodedToken } from '../models/DecodedToken'
 import Auth from '../api/Auth'
+import paramsSerializer from './paramsSerializer'
 
 class HttpClient {
   private _session: AxiosInstance
@@ -11,7 +12,7 @@ class HttpClient {
     // create a new instance so we avoid clashes with any
     // configurations done on default axios instance that
     // a consumer of this SDK might use
-    this._session = axios.create()
+    this._session = axios.create({ paramsSerializer })
   }
 
   public get = async (

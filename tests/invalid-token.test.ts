@@ -6,6 +6,7 @@ import {
   Configuration,
   AccessToken,
 } from '../src/index'
+import { makeToken } from './utils'
 
 const apiUrl = 'https://api.ordercloud.io/v1'
 const testdata = {
@@ -33,30 +34,9 @@ beforeEach(() => {
   })
 })
 
-describe('has valid access token', () => {
-  test('should use access token', async () => {
-    const tenMinutesFromNowInSeconds = (Date.now() + 1000 * 60 * 10) / 1000
-    const token = _getToken(tenMinutesFromNowInSeconds)
-    Tokens.SetAccessToken(token)
-    await Products.Delete(testdata.productID)
-    expect(mockAxios.delete).toHaveBeenCalledTimes(1)
-    expect(mockAxios.delete).toHaveBeenCalledWith(
-      `${apiUrl}/products/${testdata.productID}`,
-      {
-        params: {},
-        timeout: 10000,
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-      }
-    )
-  })
-})
-
 describe('has expired access token', () => {
-  const tenMinutesAgoInSeconds = (Date.now() + 1000 * 60 * 10) / 1000
-  const expiredToken = _getToken(tenMinutesAgoInSeconds)
+  const tenMinutesAgoIn = Date.now() + 1000 * 60 * 10
+  const expiredToken = makeToken(tenMinutesAgoIn, testdata.clientIDFromToken)
   beforeEach(() => {
     Tokens.SetAccessToken(expiredToken)
   })
@@ -241,76 +221,23 @@ describe('has no access token', () => {
   })
 })
 
-// test('should use refresh token if it is set, and access token not set', async () => {
-//   const GetRefreshTokenSpy = jest.spyOn(Tokens, 'GetRefreshToken')
-//   const RefreshTokenSpy = jest
-//     .spyOn(Auth, 'RefreshToken')
-//     .mockImplementationOnce(() =>
-//       Promise.resolve({
-//         access_token: testdata.accessTokenFromRefresh,
-//         expires_in: 28799,
-//         token_type: 'bearer',
-//         refresh_token: null,
-//       })
-//     )
-//   Tokens.RemoveAccessToken()
-//   Tokens.SetRefreshToken('f36ebba3-5218-4f34-9657-b8738730b735')
-//   const mockProductID = 'mockProductID__weird'
-
-//   await Products.Delete(mockProductID)
-
-//   expect(mockAxios.delete).toHaveBeenCalledTimes(1)
-//   expect(GetRefreshTokenSpy).toHaveBeenCalledTimes(1)
-//   expect(RefreshTokenSpy).toHaveBeenCalledTimes(1)
-//   expect(mockAxios.delete).toHaveBeenCalledWith(
-//     `${apiUrl}/products/${mockProductID}`,
-//     {
-//       params: {},
-//       timeout: 10000,
-//       headers: {
-//         'Content-Type': 'application/json',
-//         'Authorization': `Bearer ${testdata.accessTokenFromRefresh}`,
-//       },
-//     }
-//   )
-// })
-/*
-{
-    "usr": "testbuyer",
-    "cid": "97bbf2cc-59d1-449a-b67c-ae9262add284",
-    "u": "1920563",
-    "usrtype": "buyer",
-    "role": [
-        "MeAddressAdmin",
-        "MeAdmin",
-        "MeCreditCardAdmin",
-        "MeXpAdmin",
-        "Shopper",
-        "BuyerReader"
-    ],
-    "iss": "https://auth.ordercloud.io",
-    "aud": "https://api.ordercloud.io",
-    "exp": 1565400989,
-    "nbf": 1565364989
-}
-*/
-
-function _getToken(expiresInSeconds: number): string {
-  // return a mock token with an updated expiration
-  const jwt = {
-    'usr': 'testbuyer',
-    'cid': testdata.clientIDFromToken,
-    'u': '1920563',
-    'usrtype': 'buyer',
-    'role': ['FullAccess'],
-    'iss': 'https://auth.ordercloud.io',
-    'aud': 'https://api.ordercloud.io',
-    'exp': Date.now() - expiresInSeconds * 1000,
-    'nbf': 1565364989,
-  }
-  return [
-    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9',
-    btoa(JSON.stringify(jwt)),
-    'tuWzEMa4lH2zx4zrab3X4d1uTFFwEAs7pfOZ_yQHV14',
-  ].join('.')
-}
+describe('has valid access token', () => {
+  test('should use access token', async () => {
+    const tenMinutesFromNow = Date.now() + 1000 * (60 * 10)
+    const token = makeToken(tenMinutesFromNow, testdata.clientIDFromToken)
+    Tokens.SetAccessToken(token)
+    await Products.Delete(testdata.productID)
+    expect(mockAxios.delete).toHaveBeenCalledTimes(1)
+    expect(mockAxios.delete).toHaveBeenCalledWith(
+      `${apiUrl}/products/${testdata.productID}`,
+      {
+        params: {},
+        timeout: 10000,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      }
+    )
+  })
+})
