@@ -20,7 +20,7 @@ The OrderCloud SDK for Javascript is a modern client library for building soluti
 
 - Works both on the **browser** and **node.js**
 - **UMD compatible** you can use it with any module loader
-- ESM module available for bundlers that support it. This enables tree shaking. Use only what you import.
+- ESM module available for bundlers that support it. This enables tree shaking - use only what you import.
 - Built-in typescript support, no additional types package necessary
 - Full feature parity with API
 - Auto-generated [API reference](TODO:link-to-api-referencething)
@@ -29,30 +29,44 @@ The OrderCloud SDK for Javascript is a modern client library for building soluti
 
 ## ⚙️ Installation
 
+with npm:
+
 ```shell
 npm install ordercloud-javascript-sdk --save
 ```
 
 or
 
+with yarn:
+
 ```shell
 yarn add ordercloud-javascript-sdk
 ```
 
+or
+
+with CDN:
+
+```html
+<script src="https://unpkg.com/ordercloud-javascript-sdk/dist/index.js"></script>
+```
+
+Access SDK on `window.OrderCloud`
+
 ## ➕ Adding it to your project
+
+### Using selective import
+
+This is the preferred method of importing the sdk as it allows modern bundlers like webpack to tree shake the parts of the SDK that you aren't using, making your project more lean.
+
+```javascript
+import { Products } from 'ordercloud-javascript-sdk';
+```
 
 ### Using import
 
 ```javascript
 import OrderCloudSDK from 'ordercloud-javascript-sdk';
-```
-
-### Using selective import
-
-This is the preferred method of importing the sdk as it allows modern bundlers like webpack to tree shake the code that you aren't using, making your project more lean.
-
-```javascript
-import { Products } from 'ordercloud-javascript-sdk';
 ```
 
 ### Using require
@@ -63,13 +77,11 @@ const OrderCloudSDK = require('ordercloud-javascript-sdk');
 
 ## 🔐 Authentication
 
-<!-- TODO: LINK TO AUTH CLASS CAN PROBS BE TO TYPEDOC -->
-We'll need to get a token before we can make any API calls. The platform offers four different
-[auth workflows](https://developer.ordercloud.io/documentation/platform-guides/authentication/oauth2-workflows)
-all found under the [Auth class](https://github.com/ordercloud-api/OrderCloud-JavaScript-SDK/tree/master/src/api/Auth.ts).
+We'll need to get a token before we can make any API calls. The platform offers five different ways of getting a token as part of the [Auth class](https://ordercloud-api.github.io/ordercloud-javascript-sdk/classes/auth.html).
 
-We'll use the password-grant type for this example.
+We'll use the login method this example.
 
+<!-- TODO: devcenter links will need to be updated -->
 ```javascript
 import { Auth, Tokens } from 'ordercloud-javascript-sdk';
 
@@ -96,7 +108,7 @@ Let's run through a couple scenarios and what the call will look like with the S
 My products where `xp.Featured` is `true`
 
 ```javascript
-Me.ListProducts({filters: {'xp.Featured': true})
+Me.ListProducts({filters: {'xp.Featured': true}})
   .then(productList => console.log(productList));
 ```
 
@@ -110,7 +122,7 @@ Me.ListOrders( {filters: {DateSubmitted: '>2018-04-20'}})
 Users with the last name starting with Smith:
 
 ```javascript
-Users.List('my-mock-buyerid', {filters: {LastName: 'Smith*'})
+Users.List('my-mock-buyerid', {filters: {LastName: 'Smith*'}})
   .then(userList => console.log(userList));
 ```
 
@@ -132,9 +144,9 @@ And of course you can mix and match filters to your heart's content.
 
 ## 👬 Impersonation
 
-Impersonation allows a seller user to make an api call on behalf of another user. The SDK enables this in two different ways, both tackling different use cases.
+Impersonation allows a seller user to make an API call on behalf of another user. The SDK enables this in two ways, each tackling different use cases.
 
-The first method we'll talk about is best suited when you need to toggle between just two users during a session. You'll simply get an impersonation token, set it and then use the `As()` method available on every service to flag the SDK that you want to use the impersonated token instead of the access token.
+The first method we'll talk about is best suited when you need to toggle between just two users during a session. You'll simply get an impersonation token, set it and then use the `As()` method available on every service to flag the SDK that you want to use the the stored token for that call.
 
 ```javascript
 import { Tokens, Me } from 'ordercloud-javascript-sdk';
@@ -157,7 +169,7 @@ Me.As().ListProducts()
   .then(impersonatedProductList => console.log(impersonatedProductList))
 ```
 
-As you can see this method makes it very easy to toggle between impersonated calls and non-impersonated calls. But what if you have more than two tokens to toggle between? To address that scenario we recommend using the optional `accessToken` parameter available on all sdk methods.
+As you can see this method makes it very easy to toggle between impersonated calls and non-impersonated calls. But what if you have more than two tokens to toggle between? To address that scenario we recommend using the optional `accessToken` parameter available as the last parameter on all sdk methods.
 
 ```javascript
 import { Me } from 'ordercloud-javascript-sdk';
@@ -179,11 +191,61 @@ Me.ListProducts(null, token3)
   .then(user3ProductList => console.log(user3ProductList))
 ```
 
-> Please note that the accessToken parameter will always be the last parameter.
-
 ## Typescript Support
 
-While typescript is not required to use this project (we compile it down to javascript for you), it does mean there are some added benefits for our typescript users. Namely this project ships with **built-in** typescript typings so all request/response models are strongly typed.
+While typescript is not required to use this project (we compile it down to javascript for you), it does mean there are some added benefits for our typescript users.
+
+### Strongly Typed xp
+
+Extended properties, or xp, is a platform feature that allows you to extend the OrderCloud data model. This is modeled in the SDK using (by default) a typescript [`any`](https://www.typescriptlang.org/docs/handbook/basic-types.html#any) type:
+
+```typescript
+const category: Category = {};
+category.xp.Featured = true;
+```
+
+Even though `Featured` does not exist on the native model, the above code will compile and work just fine with the API. But you don't get any compile-time type-checking.
+
+Alternatively, the SDK provides generic versions of all models that allow you to provide a custom xp type:
+
+```typescript
+interface MyCategoryXp {
+  Featured?: boolean;
+}
+
+const category: Category<MyCategoryXp> = {};
+category.xp.Featured = true; // strongly typed!
+```
+
+These custom models can then be used when calling any method in the SDK
+
+```typescript
+Categories.List<Category<MyCategoryXp>>('mock-catalog-id')
+  .then(categoryList => {
+    const firstCategory = categoryList.Items[0];
+    const isFeatured = firstCategory.xp.Featured; // strongly typed!
+  })
+```
+
+A common alternative to the above example is to first define a custom class that extends `Category<MyCategoryXp>`
+
+```typescript
+interface MyCategoryXp {
+  Featured?: boolean;
+}
+
+interface MyCategory extends Category<MyCategoryXp> {
+
+}
+
+Categories.List<MyCategory>('mock-catalog-id')
+  .then(categoryList => {
+    const firstCategory = categoryList.Items[0];
+    const isFeatured = firstCategory.xp.Featured; // strongly typed!
+  })
+```
+
+This is nicer and especially preferable for models like `Order` which have many nested models each with their own `xp` fields that must be defined at the top level. For example: `Order<OrderXp, FromUserXp, BillingAddressXp>`. Declaring those 3 xp types once on a custom `MyOrder` class is far cleaner than declaring them on every call to `Orders.Get` or `Orders.List`.
 
 ## 📄 License
 

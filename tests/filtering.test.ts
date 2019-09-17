@@ -10,6 +10,18 @@ beforeEach(() => {
   Tokens.RemoveImpersonationToken()
 })
 
+interface MyUser extends User<MyUserXP> {}
+
+interface User<T> {
+  ID: string
+  Name: string
+  xp: T
+}
+
+interface MyUserXP {
+  blah: string
+}
+
 // TODO: copy paste these examples into readme
 
 test('can filter call with boolean', async () => {
